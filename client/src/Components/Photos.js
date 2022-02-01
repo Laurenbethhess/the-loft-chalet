@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function Contact( { user } ) {
+function Photos( { user } ) {
 
     return (
         <div>
@@ -9,4 +9,4 @@ function Contact( { user } ) {
     )
 }
 
-export default Contact
+export default Photos

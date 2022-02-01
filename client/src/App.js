@@ -5,6 +5,8 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./Components/Home";
 import Contact from "./Components/Contact";
 import Login from "./Components/Login";
+import Nav from "./Components/Nav";
+import Photos from "./Components/Photos"
 
 function App() {
   const [user, setUser] = useState(null);
@@ -23,10 +25,12 @@ if (!user) return <Login onLogin={setUser} />
 const user_id = user.id
 
   return (
-    <div>
+    <div className="App">
+      <Nav user={user} onSetUser={setUser}/>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/" element={<Home user={user} />}/>
+        <Route path="/contact" element={<Contact user={user} />}/>
+        <Route path="/photos" element={<Photos user={user} />}/>
       </Routes>
 
     </div>

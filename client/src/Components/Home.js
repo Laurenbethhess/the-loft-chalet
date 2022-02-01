@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 
-function Home() {
+function Home( { user } ) {
 
     return (
         <div>
-            <h1>Hello</h1>
+            <h1>Hello, {user.first_name} <img className="avatar" src={user.avatar_url}/> </h1>
         </div>
     )
 }
