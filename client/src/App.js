@@ -10,6 +10,15 @@ import Photos from "./Components/Photos"
 
 function App() {
   const [user, setUser] = useState(null);
+  const [photos, setPhotos] = useState([]);
+
+  useEffect(() => {
+    // fetch('http://localhost:3000/photos')
+    fetch('https://the-loft-chalet.herokuapp.com/photos')
+    .then(r => r.json())
+    .then(photos => setPhotos(photos))
+  }, [])
+
 
   useEffect(() => {
   // auto-login
@@ -30,7 +39,7 @@ const user_id = user.id
       <Routes>
         <Route path="/" element={<Home user={user} />}/>
         <Route path="/contact" element={<Contact user={user} />}/>
-        <Route path="/photos" element={<Photos user={user} />}/>
+        <Route path="/photos" element={<Photos user={user} photos={photos} />}/>
       </Routes>
 
     </div>

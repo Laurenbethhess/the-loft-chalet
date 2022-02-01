@@ -3,7 +3,12 @@
 }
 
 .avatar {
-  height: 50px;
-  width: 50px;
+  width: 30px;
+  height: 20px;
+}
+
+.home_photo {
+  height: 300px;
+  width: 600px;
 }
 

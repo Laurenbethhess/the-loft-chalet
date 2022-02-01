@@ -1,4 +1,6 @@
 class CommentRatingsController < ApplicationController
+    skip_before_action :authorize
+
 
     def index
         render json: CommentRating.all

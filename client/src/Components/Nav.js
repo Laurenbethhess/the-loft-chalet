@@ -15,6 +15,7 @@ function Nav( { user, onSetUser } ) {
     return (
         <div>
             <br/>
+            <>Hello, {user.first_name}<img className="avatar" src={user.avatar_url}/></>
             <Link to="/">Home</Link><>|</>
             <Link to="/contact">Contact</Link><>|</>
             <Link to="/photos">Photos</Link><>-</>
