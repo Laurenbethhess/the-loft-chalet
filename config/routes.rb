@@ -1,11 +1,21 @@
 Rails.application.routes.draw do
   resources :comment_ratings
   resources :users
-  resources :photos
+  resources :photos, only: [:index, :show]
   resources :amenities
-  resources :properties
+  resources :properties, only: [:index, :show]
+
+  post "/signup", to: "users#create"
+  get "/me", to: "users#show"
+  post "/login", to: "sessions#create"
+  delete "/logout", to: "sessions#destroy"
+
 
   # Defines the root path route ("/")
   # root "articles#index"
-  get '/hello', to: 'application#hello_world'
+
+  # Routing logic: fallback requests for React Router.
+  # Leave this here to help deploy your app later!
+  get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
+
 end
