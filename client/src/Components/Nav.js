@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Rating from '@mui/material/Rating';
 
-function Nav( { user, onSetUser } ) {
+
+function Nav( { user, onSetUser, property } ) {
 
     function handleLogoutClick() {
-        fetch("https://the-loft-chalet.herokuapp.com//logout", { method: "DELETE" }).then((r) => {
-        // fetch("http://localhost:4000/logout", { method: "DELETE" }).then((r) => {
+        // fetch("https://the-loft-chalet.herokuapp.com//logout", { method: "DELETE" }).then((r) => {
+        fetch("http://localhost:3000/logout", { method: "DELETE" }).then((r) => {
             if (r.ok) {
                 onSetUser(null);
             }
@@ -23,6 +25,8 @@ function Nav( { user, onSetUser } ) {
             <Link to="/contact">Contact</Link><>|</>
             <Link to="/">Main</Link><>-</>
             <button onClick={handleLogoutClick}>Logout</button>
+            < Rating name="read-only" value={property.average_rating} readOnly />
+            
             <br/>
             <>____________________________________________________________________________</>
         </div>

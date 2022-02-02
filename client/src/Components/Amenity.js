@@ -5,7 +5,8 @@ function Amenity( { user } ) {
     const [amenities, setAmenities] = useState([])
 
     useEffect(() => {
-        fetch('https://the-loft-chalet.herokuapp.com/amenities')
+        fetch('http://localhost:3000/amenities')
+        // fetch('https://the-loft-chalet.herokuapp.com/amenities')
         .then(r => r.json())
         .then(amenities => setAmenities(amenities))
     }, [])

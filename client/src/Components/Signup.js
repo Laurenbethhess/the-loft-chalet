@@ -18,8 +18,8 @@ function Signup({ onLogin }) {
     setErrors([]);
     setIsLoading(true);
 
-    fetch("https://the-loft-chalet.herokuapp.com/users", {
-    // fetch("http://localhost:4000/users", {
+    // fetch("https://the-loft-chalet.herokuapp.com/users", {
+    fetch("http://localhost:3000/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

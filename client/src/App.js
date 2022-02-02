@@ -18,20 +18,22 @@ function App() {
   const [property, setProperty] = useState('')
 
   useEffect(() => {
-    fetch('https://the-loft-chalet.herokuapp.com/photos')
+    fetch('http://localhost:3000/photos')
+    // fetch('https://the-loft-chalet.herokuapp.com/photos')
     .then(r => r.json())
     .then(photos => setPhotos(photos))
   }, [])
 
   useEffect(() => {
-    fetch('https://the-loft-chalet.herokuapp.com/comment_ratings')
-    // fetch('http://localhost:3000/comment_ratings')
+    // fetch('https://the-loft-chalet.herokuapp.com/comment_ratings')
+    fetch('http://localhost:3000/comment_ratings')
     .then(r => r.json())
     .then(reviews => setReviews(reviews))
   }, [])
 
   useEffect(() => {
-    fetch('https://the-loft-chalet.herokuapp.com/properties/1')
+    fetch('http://localhost:3000/properties/1')
+    // fetch('https://the-loft-chalet.herokuapp.com/properties/1')
     .then(r => r.json())
     .then(property => setProperty(property))
   }, [])
@@ -59,7 +61,7 @@ function handleUpdateReview(updatedReviewObj) {
       return review;
     }
   });
-  setReviews(updatedReviews);
+  setReviews(updatedReviews)
 }
 
 function handleDeleteReview(id) {
@@ -67,20 +69,16 @@ function handleDeleteReview(id) {
   setReviews(finalReviews)
 }
 
-const user_id = user.id
-const property_id = property.id
-
-
   return (
     <div className="App">
-      <Nav user={user} onSetUser={setUser}/>
+      <Nav user={user} onSetUser={setUser} property={property}/>
       <Routes>
         <Route path="/" element={<Home property={property} reviews={reviews} />}/>
         <Route path="/contact" element={<Contact user={user}  />}/>
         <Route path="/photos" element={<Photos user={user} photos={photos} />}/>
         <Route path="/amenities" element={<Amenity />}/>
-        <Route path="/leave-a-review" element={<CreateReview onAddReview={handleAddReview} user_id={user_id} property_id={property_id}/>}/>
-        <Route path="/edit-review" element={<EditReview onUpdateReview={handleUpdateReview} reviews={reviews} user_id={user_id} onDeleteReview={handleDeleteReview}/>}/>
+        <Route path="/leave-a-review" element={<CreateReview onAddReview={handleAddReview} user={user} property={property} />}/>
+        <Route path="/edit-review" element={<EditReview onUpdateReview={handleUpdateReview} reviews={reviews} onDeleteReview={handleDeleteReview} user={user}/>}/>
       </Routes>
 
     </div>

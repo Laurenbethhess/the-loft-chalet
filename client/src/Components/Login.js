@@ -13,7 +13,8 @@ function Login({ onLogin }) {
   function handleSubmit(e) {
     e.preventDefault();
     setIsLoading(true);
-    fetch("https://the-loft-chalet.herokuapp.com/login", {
+    // fetch("https://the-loft-chalet.herokuapp.com/login", {
+    fetch("http://localhost:3000/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
