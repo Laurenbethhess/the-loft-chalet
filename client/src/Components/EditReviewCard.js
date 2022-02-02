@@ -2,16 +2,21 @@ import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import Rating from '@mui/material/Rating';
 
-
-
-function EditReviewCard( { review, onUpdateReview } ) {
-    const [comment, setComment] = useState("")
-    const [rating, setRating] = useState("")
+function EditReviewCard( { review, onUpdateReview, onDeleteReview } ) {
+    const [comment, setComment] = useState(review.comment)
+    const [rating, setRating] = useState(review.rating)
     const [errors, setErrors] = useState([]);
     const navigate = useNavigate();
 
     function handleUpdateReview(updatedReview) {
         onUpdateReview(updatedReview)
+    }
+
+    function handleDeleteClick() {
+        fetch(`http://localhost:3000/comment_ratings/${review.id}`, {
+          method: "DELETE",
+        })
+        onDeleteReview(review.id)
     }
 
     function handleFormSubmit(e) {
@@ -45,7 +50,6 @@ function EditReviewCard( { review, onUpdateReview } ) {
     return (
         <div>
             <br/>
-            {review.comment}
             <form onSubmit={handleFormSubmit}>
                 <input
                     type="text"
@@ -69,6 +73,9 @@ function EditReviewCard( { review, onUpdateReview } ) {
                     ))}
                 </div>
             </form>
+            <br/>
+            <button onClick={handleDeleteClick}>Delete Review</button>
+            <br/>
             <>_____________________________________________</>
         </div>
     )

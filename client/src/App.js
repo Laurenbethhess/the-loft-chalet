@@ -62,6 +62,11 @@ function handleUpdateReview(updatedReviewObj) {
   setReviews(updatedReviews);
 }
 
+function handleDeleteReview(id) {
+  const finalReviews = reviews.filter(review => review.id !== id)
+  setReviews(finalReviews)
+}
+
 const user_id = user.id
 const property_id = property.id
 
@@ -75,10 +80,7 @@ const property_id = property.id
         <Route path="/photos" element={<Photos user={user} photos={photos} />}/>
         <Route path="/amenities" element={<Amenity />}/>
         <Route path="/leave-a-review" element={<CreateReview onAddReview={handleAddReview} user_id={user_id} property_id={property_id}/>}/>
-        <Route path="/edit-review" element={<EditReview onUpdateReview={handleUpdateReview} reviews={reviews} user_id={user_id}/>}/>
-
-
-
+        <Route path="/edit-review" element={<EditReview onUpdateReview={handleUpdateReview} reviews={reviews} user_id={user_id} onDeleteReview={handleDeleteReview}/>}/>
       </Routes>
 
     </div>
