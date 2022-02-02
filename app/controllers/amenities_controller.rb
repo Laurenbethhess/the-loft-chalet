@@ -3,7 +3,7 @@ class AmenitiesController < ApplicationController
 
 
     def index
-        render json: Amenity.all
+        render json: Amenity.ordered_by_id
     end
 
     def show

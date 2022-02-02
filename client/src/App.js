@@ -13,7 +13,6 @@ function App() {
   const [photos, setPhotos] = useState([]);
 
   useEffect(() => {
-    // fetch('http://localhost:3000/photos')
     fetch('https://the-loft-chalet.herokuapp.com/photos')
     .then(r => r.json())
     .then(photos => setPhotos(photos))

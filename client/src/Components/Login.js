@@ -14,7 +14,6 @@ function Login({ onLogin }) {
     e.preventDefault();
     setIsLoading(true);
     fetch("https://the-loft-chalet.herokuapp.com/login", {
-    // fetch("http://localhost:4000/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
