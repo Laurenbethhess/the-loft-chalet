@@ -3,19 +3,19 @@ import { useNavigate } from 'react-router-dom';
 import Rating from '@mui/material/Rating';
 
 
-function CreateReview( { user_id, onAddReview, property_id } ) {
+function CreateReview( { user, onAddReview, property } ) {
     const [comment, setComment] = useState("")
     const [rating, setRating] = useState("")
-    const [user, setUserId] = useState(user_id)
-    const [property, setPropertyId] = useState(property_id)
     const [errors, setErrors] = useState([]);
     const navigate = useNavigate();
+    const user_id = user.id
+    const property_id = property.id 
 
 
     function handleSubmit(e) {
         e.preventDefault()
-        fetch("https://the-loft-chalet.herokuapp.com/comment_ratings", {
-        // fetch("http://localhost:3000/comment_ratings", {
+        // fetch("https://the-loft-chalet.herokuapp.com/comment_ratings", {
+        fetch("http://localhost:3000/comment_ratings", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -23,8 +23,8 @@ function CreateReview( { user_id, onAddReview, property_id } ) {
           body: JSON.stringify({
             comment: comment,
             rating: rating,
-            user_id: user,
-            property_id: property
+            user_id: user_id,
+            property_id: property_id
           }),
         }).then((r) => {
           if (r.ok) {
@@ -32,8 +32,6 @@ function CreateReview( { user_id, onAddReview, property_id } ) {
                 onAddReview(newReview)
                 setComment("")
                 setRating("")
-                setPropertyId(property_id)
-                setUserId(user_id)
                 navigate('/');
               })
           } else {
