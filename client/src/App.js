@@ -7,10 +7,15 @@ import Contact from "./Components/Contact";
 import Login from "./Components/Login";
 import Nav from "./Components/Nav";
 import Photos from "./Components/Photos"
+import Amenity from "./Components/Amenity";
+import CreateReview from "./Components/CreateReview";
+import EditReview from "./Components/EditReview";
 
 function App() {
   const [user, setUser] = useState(null);
   const [photos, setPhotos] = useState([]);
+  const [reviews, setReviews] = useState([]);
+  const [property, setProperty] = useState('')
 
   useEffect(() => {
     fetch('https://the-loft-chalet.herokuapp.com/photos')
@@ -18,6 +23,18 @@ function App() {
     .then(photos => setPhotos(photos))
   }, [])
 
+  useEffect(() => {
+    // fetch('https://my-ecards.herokuapp.com/comment_ratings')
+    fetch('http://localhost:3000/comment_ratings')
+    .then(r => r.json())
+    .then(reviews => setReviews(reviews))
+  }, [])
+
+  useEffect(() => {
+    fetch('https://the-loft-chalet.herokuapp.com/properties/1')
+    .then(r => r.json())
+    .then(property => setProperty(property))
+  }, [])
 
   useEffect(() => {
   // auto-login
@@ -30,15 +47,38 @@ function App() {
 
 if (!user) return <Login onLogin={setUser} />
 
+function handleAddReview(newReview) {
+  setReviews([...reviews, newReview])
+}
+
+function handleUpdateReview(updatedReviewObj) {
+  const updatedReviews = reviews.map(review => {
+    if (review.id === updatedReviewObj.id) {
+      return updatedReviewObj;
+    } else {
+      return review;
+    }
+  });
+  setReviews(updatedReviews);
+}
+
 const user_id = user.id
+const property_id = property.id
+
 
   return (
     <div className="App">
       <Nav user={user} onSetUser={setUser}/>
       <Routes>
-        <Route path="/" element={<Home user={user} />}/>
-        <Route path="/contact" element={<Contact user={user} />}/>
+        <Route path="/" element={<Home property={property} reviews={reviews} />}/>
+        <Route path="/contact" element={<Contact user={user}  />}/>
         <Route path="/photos" element={<Photos user={user} photos={photos} />}/>
+        <Route path="/amenities" element={<Amenity />}/>
+        <Route path="/leave-a-review" element={<CreateReview onAddReview={handleAddReview} user_id={user_id} property_id={property_id}/>}/>
+        <Route path="/edit-review" element={<EditReview onUpdateReview={handleUpdateReview} reviews={reviews} user_id={user_id}/>}/>
+
+
+
       </Routes>
 
     </div>

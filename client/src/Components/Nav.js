@@ -16,9 +16,12 @@ function Nav( { user, onSetUser } ) {
         <div>
             <br/>
             <>Hello, {user.first_name}<img className="avatar" src={user.avatar_url}/></>
+            <Link to="/amenities">Amenities</Link><>|</>
             <Link to="/photos">Photos</Link><>|</>
+            <Link to="/leave-a-review">Leave a Review</Link><>|</>
+            <Link to="/edit-review">Edit Review</Link><>|</>
             <Link to="/contact">Contact</Link><>|</>
-            <Link to="/">Home</Link><>-</>
+            <Link to="/">Main</Link><>-</>
             <button onClick={handleLogoutClick}>Logout</button>
             <br/>
             <>____________________________________________________________________________</>

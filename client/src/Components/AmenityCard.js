@@ -4,7 +4,7 @@ function AmenityCard( { amenity } ) {
 
     return (
         <div>
-            <p>{amenity.name} - {amenity.description}</p>
+            <li>{amenity.name} - {amenity.description}</li>
         </div>
     )
 }

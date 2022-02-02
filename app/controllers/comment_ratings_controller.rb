@@ -17,7 +17,7 @@ class CommentRatingsController < ApplicationController
 
     def update
         comment_rating = find_comment_rating
-        comment_rating.update!(comment_rating_params)
+        comment_rating.update!(update_params)
         render json: comment_rating
     end
 
@@ -34,5 +34,9 @@ class CommentRatingsController < ApplicationController
 
     def comment_rating_params
         params.permit(:property_id, :user_id, :comment, :rating)
+    end
+
+    def update_params
+        params.permit(:comment, :rating)
     end
 end
