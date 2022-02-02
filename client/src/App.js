@@ -24,8 +24,8 @@ function App() {
   }, [])
 
   useEffect(() => {
-    // fetch('https://my-ecards.herokuapp.com/comment_ratings')
-    fetch('http://localhost:3000/comment_ratings')
+    fetch('https://the-loft-chalet.herokuapp.com/comment_ratings')
+    // fetch('http://localhost:3000/comment_ratings')
     .then(r => r.json())
     .then(reviews => setReviews(reviews))
   }, [])
