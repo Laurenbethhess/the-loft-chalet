@@ -13,7 +13,6 @@ function Amenity( {} ) {
 
     const renderAmenities = amenities.map(amenity => <AmenityCard amenity={amenity} key={amenity.id} />)
 
-
     return (
         <div className="amenities">
             {renderAmenities}

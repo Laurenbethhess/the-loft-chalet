@@ -41,7 +41,7 @@ function CreateReview( { user, onAddReview, property } ) {
       }
   
     return (
-        <div>
+        <div className="welcome">
           <br/>
             <form onSubmit={handleSubmit}>
                 <input

@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
+import React from "react";
 import PhotoCard from "./PhotoCard"
 
-function Photos( { user, photos } ) {
+function Photos( { photos } ) {
     const renderPhotos = photos.map(photo => <PhotoCard photo={photo} key={photo.id} />)
 
 
     return (
-        <div>
+        <div className="photos_div">
             {renderPhotos}
         </div>
     )

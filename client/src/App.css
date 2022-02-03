@@ -1,6 +1,17 @@
 .home_photo {
   height: 300px;
   width: 600px;
+  border-radius: 10px;
+}
+
+.all_photo {
+  height: 300px;
+  width: 600px;
+  border-radius: 10px;
+}
+
+.photos_div {
+  padding-top: 100px;
 }
 
 .welcome {
@@ -25,13 +36,13 @@
   display: flex;
   justify-content: center; 
   align-items: center;
+  
 }
 
 .amenities {
   font-size: 20px; 
   font-family: Courier; 
   padding-top: 100px; 
-  display: flex;
   justify-content: center; 
   align-items: center;
 }

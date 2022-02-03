@@ -1,11 +1,17 @@
-import { useState, useEffect } from "react";
+import React from "react";
 
 function PhotoCard( { photo } ) {
+    
 
     return (
         <div>
-            <h1>{photo.photo_name}</h1>
-            <img src={photo.photo_url}/>
+            <div style={{display:'flex', justifyContent:'center', alignItems:'center', fontFamily: "Courier"}}>
+                {photo.photo_name}
+            </div>
+            <div style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
+                <img  className="all_photo" src={photo.photo_url}/>
+            </div>
+            
         </div>
     )
 }
