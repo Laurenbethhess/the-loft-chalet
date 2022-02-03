@@ -7,7 +7,6 @@ function Photos( { user, photos } ) {
 
     return (
         <div>
-            <h1>Hello, {user.first_name} </h1>
             {renderPhotos}
         </div>
     )

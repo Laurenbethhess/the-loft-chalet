@@ -9,9 +9,8 @@ function CreateReview( { user, onAddReview, property } ) {
     const [errors, setErrors] = useState([]);
     const navigate = useNavigate();
     const user_id = user.id
-    const property_id = property.id 
-
-
+    const [property_id, setPropertyId] = useState(property.id)
+ 
     function handleSubmit(e) {
         e.preventDefault()
         // fetch("https://the-loft-chalet.herokuapp.com/comment_ratings", {
@@ -24,7 +23,7 @@ function CreateReview( { user, onAddReview, property } ) {
             comment: comment,
             rating: rating,
             user_id: user_id,
-            property_id: property_id
+            property_id: property_id,
           }),
         }).then((r) => {
           if (r.ok) {
@@ -32,6 +31,7 @@ function CreateReview( { user, onAddReview, property } ) {
                 onAddReview(newReview)
                 setComment("")
                 setRating("")
+                setPropertyId(property_id)
                 navigate('/');
               })
           } else {

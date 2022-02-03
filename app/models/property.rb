@@ -7,7 +7,11 @@ class Property < ApplicationRecord
     attribute :average_rating
 
     def average_rating
-        self.comment_ratings.sum{|comment_rating| comment_rating.rating} / self.comment_ratings.length
+        if self.comment_ratings.sum{|comment_rating| comment_rating.rating} > 0
+            self.comment_ratings.sum{|comment_rating| comment_rating.rating} / self.comment_ratings.length
+        else
+            0
+        end
     end 
 
 end

@@ -14,6 +14,8 @@ function Home( { property, reviews } ) {
     const renderReviews = reviews.map(review => <ReviewsCard review={review} key={review.id} />)
 
 
+
+
     return (
         <div>
             <h1>Welcome to {property.name}! </h1>

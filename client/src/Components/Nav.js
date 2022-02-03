@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Rating from '@mui/material/Rating';
 
 
-function Nav( { user, onSetUser, property } ) {
+function Nav( { user, onSetUser, property, reviews } ) {
 
     function handleLogoutClick() {
         // fetch("https://the-loft-chalet.herokuapp.com//logout", { method: "DELETE" }).then((r) => {
@@ -13,6 +13,10 @@ function Nav( { user, onSetUser, property } ) {
             }
         });
     }
+
+    let arry = reviews
+    let lastElement = arry[arry.length - 1];
+
 
     return (
         <div>
@@ -25,7 +29,12 @@ function Nav( { user, onSetUser, property } ) {
             <Link to="/contact">Contact</Link><>|</>
             <Link to="/">Main</Link><>-</>
             <button onClick={handleLogoutClick}>Logout</button>
-            < Rating name="read-only" value={property.average_rating} readOnly />
+            {lastElement?
+            < Rating name="read-only" value={lastElement.property.average_rating} readOnly />
+            :
+            <></>
+            }
+            
             
             <br/>
             <>____________________________________________________________________________</>
