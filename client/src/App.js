@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import './index.css'
-// import './App.css';
+import './App.css';
 import { Routes, Route } from "react-router-dom";
 import Home from "./Components/Home";
 import Contact from "./Components/Contact";

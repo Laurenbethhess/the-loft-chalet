@@ -1,5 +1,8 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import ReviewsCard from "./ReviewsCard";
+import Paper from '@mui/material/Paper';
+import Stack from '@mui/material/Stack';
+import { styled } from '@mui/material/styles';
 
 function Home( { property, reviews } ) {
     const [homePhoto, setHomePhoto] = useState('')
@@ -11,16 +14,29 @@ function Home( { property, reviews } ) {
     .then(homePhoto => setHomePhoto(homePhoto))
   }, [])
 
+  const Item = styled(Paper)(() => ({
+    textAlign: 'center',
+    color: "black",
+    fontSize: 40,
+    paddingTop: 70,
+  }));
+
     const renderReviews = reviews.map(review => <ReviewsCard review={review} key={review.id} />)
 
     return (
         <div>
-            <br/><br/><br/><br/>
-            <h1>Welcome to {property.name}! </h1>
-            <img className="home_photo" src={homePhoto.photo_url}/>
-            <p>{property.description}</p>
-            <h2>Reviews</h2>
+            <div className="welcome">
+                    Welcome to {property.name}!
+            </div>
+            <div style={{paddingTop:50, display:'flex', justifyContent:'center', alignItems:'center'}}>
+                <img className="home_photo"  src={homePhoto.photo_url}/>
+            </div>
+            <div className="description">
+                {property.description}
+            </div>
+            <br/>
             {renderReviews}
+            <br/>
         </div>
     )
 }

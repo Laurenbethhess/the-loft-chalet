@@ -1,161 +1,37 @@
-.nav {
-  height: 75px;
-  background: #B1DFB0;
-}
-
-.greeting {
-  position: absolute;
-  width: 140px;
-  height: 70px;
-  left: 30px;
-  top: 25px;
-  font-family: fantasy;
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 29px;
-  color: #000000;
-}
-
-.amenities_link {
-  position: absolute;
-  width: 125px;
-  height: 70px;
-  left: 200px;
-  top: 25px;
-  font-family: fantasy;
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 29px;
-  color: #000000;
-}
-
-.photos_link {
-  position: absolute;
-  width: 125px;
-  height: 70px;
-  left: 345px;
-  top: 25px;
-  font-family: fantasy;
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 29px;
-  color: #000000;
-}
-
-.create_link {
-  position: absolute;
-  width: 135px;
-  height: 70px;
-  left: 500px;
-  top: 25px;
-  font-family: fantasy;
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 29px;
-  color: #000000;
-}
-
-.edit_link {
-  position: absolute;
-  width: 125px;
-  height: 70px;
-  left: 690px;
-  top: 25px;
-  font-family: fantasy;
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 29px;
-  color: #000000;
-}
-
-.contact_link {
-  position: absolute;
-  width: 125px;
-  height: 70px;
-  left: 850px;
-  top: 25px;
-  font-family: fantasy;
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 29px;
-  color: #000000;
-}
-
-.main_link {
-  position: absolute;
-  width: 125px;
-  height: 70px;
-  left: 980px;
-  top: 25px;
-  font-family: fantasy;
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 29px;
-  color: #000000;
-}
-
-.logout {
-  position: absolute;
-  width: 125px;
-  height: 70px;
-  left: 1100px;
-  top: 25px;
-  font-family: fantasy;
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 29px;
-  color: #000000;
-  cursor: pointer;
-}
-
-.property_rating {
-  position: absolute;
-  left: 1300px;
-  top: 5px;
-}
-
-.avatar {
-  position: absolute;
-  width: 188px;
-  height: 148px;
-  left: 100px;
-  top: 558px;
-}
-
-.username {
-  position: absolute;
-  width: 315px;
-  height: 50px;
-  left: 600px;
-  top: 558px;
-}
-
-.date {
-  position: absolute;
-  width: 315px;
-  height: 50px;
-  left: 600px;
-  top: 600px;
-}
-
-.user_rating {
-  position: absolute;
-  width: 315px;
-  height: 50px;
-  left: 600px;
-  top: 650px;
-}
-
-.user_review {
-  position: absolute;
-  width: 538px;
-  height: 173px;
-  left: 430px;
-  top: 750px;
-}
-
 .home_photo {
   height: 300px;
   width: 600px;
 }
 
+.welcome {
+  font-size: 30px; 
+  font-family: Courier; 
+  padding-top: 100px; 
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}
+
+.description {
+  font-size: 20px; 
+  font-family: Courier; 
+  padding-top: 20px; 
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}
+
+.card {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}
+
+.amenities {
+  font-size: 20px; 
+  font-family: Courier; 
+  padding-top: 100px; 
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}

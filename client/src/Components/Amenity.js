@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import AmenityCard from "./AmenityCard";
 
-function Amenity( { user } ) {
+function Amenity( {} ) {
     const [amenities, setAmenities] = useState([])
 
     useEffect(() => {
@@ -15,9 +15,8 @@ function Amenity( { user } ) {
 
 
     return (
-        <div>
+        <div className="amenities">
             {renderAmenities}
-
         </div>
     )
 }
