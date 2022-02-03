@@ -1,5 +1,125 @@
 .App {
   text-align: center;
+  position: relative;
+}
+
+.nav {
+  position: relative;
+  height: 75px;
+  left: 0px;
+  top: 0px;
+  background: #B1DFB0;
+}
+
+.greeting {
+  position: absolute;
+  width: 140px;
+  height: 70px;
+  left: 30px;
+  top: 25px;
+  font-family: fantasy;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 29px;
+  color: #000000;
+}
+
+.amenities_link {
+  position: absolute;
+  width: 125px;
+  height: 70px;
+  left: 200px;
+  top: 25px;
+  font-family: fantasy;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 29px;
+  color: #000000;
+}
+
+.photos_link {
+  position: absolute;
+  width: 125px;
+  height: 70px;
+  left: 345px;
+  top: 25px;
+  font-family: fantasy;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 29px;
+  color: #000000;
+}
+
+.create_link {
+  position: absolute;
+  width: 135px;
+  height: 70px;
+  left: 500px;
+  top: 25px;
+  font-family: fantasy;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 29px;
+  color: #000000;
+}
+
+.edit_link {
+  position: absolute;
+  width: 125px;
+  height: 70px;
+  left: 690px;
+  top: 25px;
+  font-family: fantasy;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 29px;
+  color: #000000;
+}
+
+.contact_link {
+  position: absolute;
+  width: 125px;
+  height: 70px;
+  left: 850px;
+  top: 25px;
+  font-family: fantasy;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 29px;
+  color: #000000;
+}
+
+.main_link {
+  position: absolute;
+  width: 125px;
+  height: 70px;
+  left: 980px;
+  top: 25px;
+  font-family: fantasy;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 29px;
+  color: #000000;
+}
+
+.logout {
+  position: absolute;
+  width: 125px;
+  height: 70px;
+  left: 1100px;
+  top: 25px;
+  font-family: fantasy;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 29px;
+  color: #000000;
+  cursor: pointer;
+}
+
+.property_rating {
+  position: absolute;
+  left: 580px;
+  top: 5px;
 }
 
 .avatar {

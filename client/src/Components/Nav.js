@@ -19,25 +19,25 @@ function Nav( { user, onSetUser, property, reviews } ) {
 
 
     return (
-        <div>
+        <div className="nav">
             <br/>
-            <>Hello, {user.first_name}<img className="avatar" src={user.avatar_url}/></>
-            <Link to="/amenities">Amenities</Link><>|</>
-            <Link to="/photos">Photos</Link><>|</>
-            <Link to="/leave-a-review">Leave a Review</Link><>|</>
-            <Link to="/edit-review">Edit Review</Link><>|</>
-            <Link to="/contact">Contact</Link><>|</>
-            <Link to="/">Main</Link><>-</>
-            <button onClick={handleLogoutClick}>Logout</button>
+            <div className="greeting">
+                Hello, {user.first_name} !
+            </div>
+            
+            <Link className="amenities_link" to="/amenities">Amenities</Link>
+            <Link className="photos_link" to="/photos">Photos</Link>
+            <Link className="create_link" to="/leave-a-review">Leave a Review</Link>
+            <Link className="edit_link" to="/edit-review">Edit Review</Link>
+            <Link className="contact_link" to="/contact">Contact</Link>
+            <Link className="main_link" to="/">Main</Link>
+            <div className="logout" onClick={handleLogoutClick}>Logout</div>
             {lastElement?
-            < Rating name="read-only" value={lastElement.property.average_rating} readOnly />
+            <Rating className="property_rating" name="read-only" value={lastElement.property.average_rating} readOnly />
             :
             <></>
             }
             
-            
-            <br/>
-            <>____________________________________________________________________________</>
         </div>
     )
 }

@@ -18,6 +18,8 @@ private
     render json: { errors: exception.record.errors.full_messages }, status: :unprocessable_entity
   end
 
+ 
+
   def render_not_found
     render json: { error: "Item not found" }, status: :not_found
   end

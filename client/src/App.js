@@ -74,7 +74,7 @@ function handleDeleteReview(id) {
     <div className="App">
       <Nav user={user} onSetUser={setUser} property={property} reviews={reviews}/>
       <Routes>
-        <Route path="/" element={<Home property={property} reviews={reviews} />}/>
+        <Route path="/" element={<Home property={property} reviews={reviews}/>}/>
         <Route path="/contact" element={<Contact user={user}  />}/>
         <Route path="/photos" element={<Photos user={user} photos={photos} />}/>
         <Route path="/amenities" element={<Amenity />}/>
