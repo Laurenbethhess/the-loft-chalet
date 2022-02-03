@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import './index.css'
-import './App.css';
+// import './App.css';
 import { Routes, Route } from "react-router-dom";
 import Home from "./Components/Home";
 import Contact from "./Components/Contact";
@@ -71,7 +71,7 @@ function handleDeleteReview(id) {
 
 
   return (
-    <div className="App">
+    <div>
       <Nav user={user} onSetUser={setUser} property={property} reviews={reviews}/>
       <Routes>
         <Route path="/" element={<Home property={property} reviews={reviews}/>}/>

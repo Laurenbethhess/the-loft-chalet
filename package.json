@@ -11,6 +11,7 @@
         "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
     },
     "dependencies": {
+        "material-ui-icons": "^1.0.0-beta.36",
         "react-router-dom": "^6.2.1"
     }
 }

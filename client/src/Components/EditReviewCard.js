@@ -62,12 +62,6 @@ function EditReviewCard( { review, onUpdateReview, onDeleteReview } ) {
                     onChange={(e) => setComment(e.target.value)}
                 />
                 <br/>
-                <Rating
-                  name="simple-controlled"
-                  value={rating}
-                  onChange={(e) => setRating(e.target.value)}
-                />
-                <br/>
                 <button type="submit">Update</button>
                 <div>
                     {errors.map((err) => (

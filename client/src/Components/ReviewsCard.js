@@ -1,17 +1,25 @@
 import { useState, useEffect } from "react";
 import Rating from '@mui/material/Rating';
+import Avatar from '@mui/material/Avatar';
 
 
-function ReviewsCard( { review} ) {
+function ReviewsCard( { review } ) {
 
     return (
         <div>
-            <p>On {review.date_created}, {review.user.first_name} said <>"</>{review.comment}<>"</>  </p>
-            <p><></><></><></>Last Updated: {review.date_updated}</p>
-            <p><Rating name="read-only" value={review.rating} readOnly /></p>
-            <img className="avatar" src={review.user.avatar_url}/>
-            <br/>
-            <>___________________________________________________</>
+            <div className="username">
+                {review.user.first_name}
+            </div>
+            <div className="date">
+                {review.date_updated}
+            </div>
+            <div className="user_rating">
+                <Rating name="read-only" value={review.rating} readOnly />
+            </div>
+            <div className="user_review">
+            <>"</>{review.comment}<>"</>
+            </div>
+            <Avatar alt={review.user.first_name} src={review.user.avatar_url} />
         </div>
     )
 }

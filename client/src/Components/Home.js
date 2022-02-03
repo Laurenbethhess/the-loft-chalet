@@ -15,6 +15,7 @@ function Home( { property, reviews } ) {
 
     return (
         <div>
+            <br/><br/><br/><br/>
             <h1>Welcome to {property.name}! </h1>
             <img className="home_photo" src={homePhoto.photo_url}/>
             <p>{property.description}</p>
