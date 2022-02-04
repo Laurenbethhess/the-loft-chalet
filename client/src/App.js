@@ -18,15 +18,15 @@ function App() {
   const [property, setProperty] = useState('')
 
   useEffect(() => {
-    fetch('http://localhost:3000/photos')
-    // fetch('https://the-loft-chalet.herokuapp.com/photos')
+    // fetch('http://localhost:3000/photos')
+    fetch('https://the-loft-chalet.herokuapp.com/photos')
     .then(r => r.json())
     .then(photos => setPhotos(photos))
   }, [])
 
   useEffect(() => {
-    // fetch('https://the-loft-chalet.herokuapp.com/comment_ratings')
-    fetch('http://localhost:3000/comment_ratings')
+    fetch('https://the-loft-chalet.herokuapp.com/comment_ratings')
+    // fetch('http://localhost:3000/comment_ratings')
     .then(r => r.json())
     .then(reviews => setReviews(reviews))
   }, [])
@@ -40,7 +40,8 @@ function App() {
 
   useEffect(() => {
   // auto-login
-    fetch("/me").then((resp) => {
+    fetch("https://the-loft-chalet.herokuapp.com/users/me").then((resp) => {
+    // fetch("http://localhost:3000/properties/users/me").then((resp) => {
       if (resp.ok) {
         resp.json().then((user) => setUser(user));
       }
@@ -78,6 +79,7 @@ function handleDeleteReview(id) {
         <Route path="/photos" element={<Photos user={user} photos={photos} />}/>
         <Route path="/amenities" element={<Amenity />}/>
         <Route path="/leave-a-review" element={<CreateReview onLogin={setUser} onAddReview={handleAddReview} user={user} property={property}/>}/>
+        <Route path="/login" element={<Login />}/>
         <Route path="/edit-review" element={<EditReview onLogin={setUser} onUpdateReview={handleUpdateReview} reviews={reviews} onDeleteReview={handleDeleteReview} user={user}/>}/>
       </Routes>
 

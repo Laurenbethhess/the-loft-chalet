@@ -19,8 +19,8 @@ function CreateReview( { user, onAddReview, property, onLogin } ) {
 
     function handleSubmit(e) {
         e.preventDefault()
-        // fetch("https://the-loft-chalet.herokuapp.com/comment_ratings", {
-        fetch("http://localhost:3000/comment_ratings", {
+        fetch("https://the-loft-chalet.herokuapp.com/comment_ratings", {
+        // fetch("http://localhost:3000/comment_ratings", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -64,6 +64,7 @@ function CreateReview( { user, onAddReview, property, onLogin } ) {
                           onChange={(e) => setComment(e.target.value)}
                         />
                         <Rating
+                          required
                           name="simple-controlled"
                           value={rating}
                           onChange={(e) => setRating(e.target.value)}
