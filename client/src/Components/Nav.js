@@ -54,13 +54,15 @@ function Nav( { user, onSetUser, reviews } ) {
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={{fontFamily: "Courier"}}>
                     <Link to="/contact">Contact</Link>
                 </Typography>
+                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={{fontFamily: "Courier"}}>
+                    <Link to="/login">Login</Link>
+                </Typography>
+                <Typography component="div" sx={{ flexGrow: 1 }} style={{fontFamily: "Courier"}}>
                     {lastElement?
                         < Rating name="read-only" value={lastElement.property.average_rating} readOnly />
                     :
                         <></>
                     }
-                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={{fontFamily: "Courier"}}>
-                    <Link to="/login">Login</Link>
                 </Typography>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={{fontFamily: "Courier"}}>
                     <Button  style={{fontFamily: "Courier", fontSize: 20}} onClick={handleLogoutClick} color="inherit">Logout</Button>
