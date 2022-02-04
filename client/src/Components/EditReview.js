@@ -8,7 +8,7 @@ function EditReview( {onUpdateReview, reviews, user, onDeleteReview} ) {
     const userRenderedReviews = userReviews.map(review => <EditReviewCard review={review} key={review.id} onUpdateReview={onUpdateReview} onDeleteReview={onDeleteReview}/>)
 
     return (
-        <div className="welcome">
+        <div>
             {userRenderedReviews}
             
         </div>

@@ -17,6 +17,7 @@ function AmenityCard( { amenity } ) {
       }));
       
     return (
+            <div>
             <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2} className="card">
                 <Grid item xs={2}>
@@ -27,6 +28,7 @@ function AmenityCard( { amenity } ) {
                 </Grid>
             </Grid>
             </Box>
+            </div>
     );
 }
 

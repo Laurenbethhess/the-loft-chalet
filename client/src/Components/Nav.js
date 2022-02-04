@@ -29,6 +29,9 @@ function Nav( { user, onSetUser, property, reviews } ) {
                         Hello, {user.first_name} !
                 </Typography>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={{fontFamily: "Courier"}}>
+                    <Link to="/">Main</Link>
+                </Typography>
+                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={{fontFamily: "Courier"}}>
                     <Link to="/amenities">Amenities</Link>
                 </Typography>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={{fontFamily: "Courier"}}>
@@ -43,10 +46,11 @@ function Nav( { user, onSetUser, property, reviews } ) {
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={{fontFamily: "Courier"}}>
                     <Link to="/contact">Contact</Link>
                 </Typography>
-                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={{fontFamily: "Courier"}}>
-                    <Link to="/">Main</Link>
-                </Typography>
-                <Rating value={lastElement.property.average_rating} readOnly />
+                    {lastElement?
+                        < Rating name="read-only" value={lastElement.property.average_rating} readOnly />
+                    :
+                        <></>
+                    }
                 <Button style={{fontFamily: "Courier"}} onClick={handleLogoutClick} color="inherit">Logout</Button>
                 </Toolbar>
             </AppBar>

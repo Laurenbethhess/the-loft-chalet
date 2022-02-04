@@ -1,6 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import Rating from '@mui/material/Rating';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
+
 
 
 function CreateReview( { user, onAddReview, property } ) {
@@ -41,33 +47,37 @@ function CreateReview( { user, onAddReview, property } ) {
       }
   
     return (
-        <div className="welcome">
-          <br/>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    name="comment"
-                    autoComplete="off"
-                    value={comment}
-                    placeholder="review"
-                    onChange={(e) => setComment(e.target.value)}
-                />
-                <br/>
-                <Rating
-                  name="simple-controlled"
-                  value={rating}
-                  onChange={(e) => setRating(e.target.value)}
-                />
-                <br/>
-                <button type="submit">Submit</button>
-                <div>
-                    {errors.map((err) => (
-                    <li key={err}>{err}</li>
-                    ))}
-                </div>
-            </form>
-
-        </div>
+          <div className="create_card">
+            <Card sx={{ minWidth: 275 }} style={{backgroundColor: "#B1DFB0"}}>
+                <CardContent>
+                    <Typography >
+                      <form onSubmit={handleSubmit}>
+                        <TextField
+                          multiline
+                          variant="filled"
+                          type="text"
+                          name="comment"
+                          autoComplete="off"
+                          value={comment}
+                          label="Review"
+                          onChange={(e) => setComment(e.target.value)}
+                        />
+                        <Rating
+                          name="simple-controlled"
+                          value={rating}
+                          onChange={(e) => setRating(e.target.value)}
+                        />
+                        <Button type="submit">Submit</Button>
+                        <div>
+                            {errors.map((err) => (
+                            <li key={err}>{err}</li>
+                            ))}
+                        </div>
+                      </form>
+                    </Typography>
+                </CardContent>
+            </Card>
+          </div>
     )
 }
 
