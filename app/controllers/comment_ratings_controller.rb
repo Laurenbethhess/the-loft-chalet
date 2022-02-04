@@ -40,7 +40,7 @@ class CommentRatingsController < ApplicationController
     end
 
     def render_invalid(exception)
-        render json: { errors: ["You already left a review."]}, status: :unprocessable_entity
+        render json: { errors: ["You already left a review.  You can edit your review under 'Edit Review'."]}, status: :unprocessable_entity
       end
 
 end

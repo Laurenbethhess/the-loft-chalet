@@ -7,8 +7,8 @@ function Home( { property, reviews } ) {
     const [homePhoto, setHomePhoto] = useState('')
 
     useEffect(() => {
-    fetch('https://the-loft-chalet.herokuapp.com/photos/1')
-    // fetch('http://localhost:3000/photos/1')
+    // fetch('https://the-loft-chalet.herokuapp.com/photos/1')
+    fetch('http://localhost:3000/photos/1')
     .then(r => r.json())
     .then(homePhoto => setHomePhoto(homePhoto))
   }, [])

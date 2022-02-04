@@ -8,7 +8,6 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Login from "./Login";
 
-
 function CreateReview( { user, onAddReview, property, onLogin } ) {
     const [comment, setComment] = useState("")
     const [rating, setRating] = useState("")
@@ -16,16 +15,12 @@ function CreateReview( { user, onAddReview, property, onLogin } ) {
     const navigate = useNavigate();
     const [property_id, setPropertyId] = useState(property.id)
 
-
     if (!user) return <Login onLogin={onLogin} />
 
-    // const user_id = user.id
-
- 
     function handleSubmit(e) {
         e.preventDefault()
-        fetch("https://the-loft-chalet.herokuapp.com/comment_ratings", {
-        // fetch("http://localhost:3000/comment_ratings", {
+        // fetch("https://the-loft-chalet.herokuapp.com/comment_ratings", {
+        fetch("http://localhost:3000/comment_ratings", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

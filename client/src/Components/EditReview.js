@@ -12,7 +12,6 @@ function EditReview( {onUpdateReview, reviews, user, onDeleteReview, onLogin } )
     return (
         <div>
             {userRenderedReviews}
-            
         </div>
     )
 }

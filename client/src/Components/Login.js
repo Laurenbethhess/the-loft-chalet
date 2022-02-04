@@ -16,8 +16,8 @@ function Login({ onLogin }) {
   function handleSubmit(e) {
     e.preventDefault();
     setIsLoading(true);
-    fetch("https://the-loft-chalet.herokuapp.com/login", {
-    // fetch("http://localhost:3000/login", {
+    // fetch("https://the-loft-chalet.herokuapp.com/login", {
+    fetch("http://localhost:3000/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -40,7 +40,7 @@ function Login({ onLogin }) {
     {showLogin ? (
       <div>
         <Card align='center' sx={{ minWidth: 275 }} style={{backgroundColor: "#B1DFB0"}}>
-          <p>Please Login</p>       
+          <p>Please Login for Access to Reviews</p>       
           <CardContent align='center'>
             <Typography >
               <form onSubmit={handleSubmit}>
