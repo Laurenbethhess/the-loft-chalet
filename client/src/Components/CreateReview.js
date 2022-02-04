@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import Rating from '@mui/material/Rating';
 import Card from '@mui/material/Card';
@@ -6,14 +6,21 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
+import Login from "./Login";
 
-function CreateReview( { user, onAddReview, property } ) {
+
+function CreateReview( { user, onAddReview, property, onLogin } ) {
     const [comment, setComment] = useState("")
     const [rating, setRating] = useState("")
     const [errors, setErrors] = useState([]);
     const navigate = useNavigate();
-    const user_id = user.id
     const [property_id, setPropertyId] = useState(property.id)
+
+
+    if (!user) return <Login onLogin={onLogin} />
+
+    // const user_id = user.id
+
  
     function handleSubmit(e) {
         e.preventDefault()
@@ -26,7 +33,7 @@ function CreateReview( { user, onAddReview, property } ) {
           body: JSON.stringify({
             comment: comment,
             rating: rating,
-            user_id: user_id,
+            user_id: user.id,
             property_id: property_id,
           }),
         }).then((r) => {

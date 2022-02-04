@@ -11,21 +11,22 @@ function AmenityCard( { amenity } ) {
         padding: theme.spacing(1),
         textAlign: 'center',
         color: "black",
-        fontWeight: "bold"
+        fontWeight: "bold",
       }));
       
     return (
-            <div>
-            <Box sx={{ flexGrow: 1 }}>
-            <Grid container spacing={2} className="card">
-                <Grid item xs={2}>
-                    <Item style={{fontFamily: "Courier"}}>{amenity.name}:</Item>
-                </Grid>
-                <Grid item xs={4}>
-                    <Item style={{fontFamily: "Courier"}}>{amenity.description}</Item>
-                </Grid>
-            </Grid>
-            </Box>
+            <div style={{backgroundColor: '#cfe8fc'}}>
+                <Box sx={{ flexGrow: 1 }}>
+                    <Grid container spacing={2} className="card">
+                        <Grid item xs={4}>
+                            <Item elevation={4} style={{fontFamily: "Courier"}}>{amenity.name}:</Item>
+                        </Grid>
+                        <Grid item xs={4}>
+                            <Item elevation={4} style={{fontFamily: "Courier"}}>{amenity.description}</Item>
+                        </Grid>
+                    </Grid>
+                </Box>
+                <br/>
             </div>
     );
 }

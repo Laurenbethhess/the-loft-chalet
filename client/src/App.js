@@ -47,7 +47,7 @@ function App() {
     });
   }, []);
 
-if (!user) return <Login onLogin={setUser} />
+// if (!user) return <Login onLogin={setUser} />
 
 function handleAddReview(newReview) {
   setReviews([...reviews, newReview])
@@ -69,17 +69,16 @@ function handleDeleteReview(id) {
   setReviews(finalReviews)
 }
 
-
   return (
-    <div>
+    <div >
       <Nav user={user} onSetUser={setUser} property={property} reviews={reviews}/>
-      <Routes>
+      <Routes >
         <Route path="/" element={<Home property={property} reviews={reviews}/>}/>
         <Route path="/contact" element={<Contact user={user}  />}/>
         <Route path="/photos" element={<Photos user={user} photos={photos} />}/>
         <Route path="/amenities" element={<Amenity />}/>
-        <Route path="/leave-a-review" element={<CreateReview onAddReview={handleAddReview} user={user} property={property}/>}/>
-        <Route path="/edit-review" element={<EditReview onUpdateReview={handleUpdateReview} reviews={reviews} onDeleteReview={handleDeleteReview} user={user}/>}/>
+        <Route path="/leave-a-review" element={<CreateReview onLogin={setUser} onAddReview={handleAddReview} user={user} property={property}/>}/>
+        <Route path="/edit-review" element={<EditReview onLogin={setUser} onUpdateReview={handleUpdateReview} reviews={reviews} onDeleteReview={handleDeleteReview} user={user}/>}/>
       </Routes>
 
     </div>

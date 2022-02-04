@@ -1,12 +1,10 @@
 import { useState } from "react"
 import Signup from "./Signup"
-import { useNavigate } from 'react-router-dom'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-
 
 function Login({ onLogin }) {
   const [username, setUsername] = useState("");
@@ -14,7 +12,6 @@ function Login({ onLogin }) {
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [showLogin, setShowLogin] = useState(true);
-  const navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -31,7 +28,6 @@ function Login({ onLogin }) {
       if (r.ok) {
         r.json().then((user) => {
           onLogin(user)
-          navigate('/')
         })
       } else {
         r.json().then((err) => setErrors(err.errors));
@@ -44,7 +40,7 @@ function Login({ onLogin }) {
     {showLogin ? (
       <div>
         <Card align='center' sx={{ minWidth: 275 }} style={{backgroundColor: "#B1DFB0"}}>
-          <p>Please Login </p>       
+          <p>Please Login</p>       
           <CardContent align='center'>
             <Typography >
               <form onSubmit={handleSubmit}>

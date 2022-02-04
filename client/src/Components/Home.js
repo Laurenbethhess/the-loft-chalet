@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ReviewsCard from "./ReviewsCard";
-import Paper from '@mui/material/Paper';
-import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-
 
 function Home( { property, reviews } ) {
     const [homePhoto, setHomePhoto] = useState('')
@@ -16,18 +13,10 @@ function Home( { property, reviews } ) {
     .then(homePhoto => setHomePhoto(homePhoto))
   }, [])
 
-  const Item = styled(Paper)(() => ({
-    textAlign: 'center',
-    color: "black",
-    fontSize: 40,
-    paddingTop: 70,
-  }));
-
     const renderReviews = reviews.map(review => <ReviewsCard review={review} key={review.id} />)
 
     return (
         <div>
-
             <div align='center'>
                 <Box sx={{paddingTop: 12, width: '100%', maxWidth: 1200 }}>
                     <Typography style={{fontWeight: "bold", fontSize: 30, fontFamily: "Courier"}} align='center' variant="p" gutterBottom component="div">

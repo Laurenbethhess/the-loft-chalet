@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
@@ -13,10 +12,8 @@ function Signup({ onLogin }) {
   const [lastname, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [avatar_url, setAvatar_url] = useState("");
-
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState([]);
-  const navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -36,13 +33,11 @@ function Signup({ onLogin }) {
         last_name: lastname,
         email: email,
         avatar_url: avatar_url
-
       }),
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
         r.json().then((user) => onLogin(user));
-        navigate('/')
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
