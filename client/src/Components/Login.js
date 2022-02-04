@@ -1,6 +1,12 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Signup from "./Signup"
 import { useNavigate } from 'react-router-dom'
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
+
 
 function Login({ onLogin }) {
   const [username, setUsername] = useState("");
@@ -34,71 +40,69 @@ function Login({ onLogin }) {
   }
 
   return (
-    <div>
-      {showLogin ? (
-        <div>
-          <form onSubmit={handleSubmit}>
-          <h1>Welcome to The Loft-Chalet!</h1>
-          <h2>Please Login</h2>
-            <div>
-              <input 
-                type="text"
-                id="username"
-                autoComplete="off"
-                placeholder="username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-              />
-            </div>
-            <div>
-              <input 
-                type="password"
-                id="password"
-                autoComplete="current-password"
-                placeholder="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-            <div>
-              <button type="submit">
-                  {isLoading ? "Loading..." : "Login"}
-              </button>
-            </div>
-            <div>
-                {errors.map((err) => (
-                  <span key={err}>{err}</span>
-                ))}
-            </div>
-            <div>
-              <p>
-                Don't have an account? &nbsp;
-                <button onClick={() => setShowLogin(false)}>
-                  Sign Up
-                </button>
-              </p>
-            </div> 
-          </form>
-        </div>
-      ) : (
-        <div>
-          <Signup onLogin={onLogin} />
-          <br />
-          <p>
-            Already have an account? &nbsp;
-            <button onClick={() => setShowLogin(true)}>
-              Log In
-            </button>
-          </p>
-        </div>
-      )}
+    <div className="create_card">
+    {showLogin ? (
+      <div>
+        <Card align='center' sx={{ minWidth: 275 }} style={{backgroundColor: "#B1DFB0"}}>
+          <p>Please Login </p>       
+          <CardContent align='center'>
+
+            <Typography >
+              <form onSubmit={handleSubmit}>
+                <TextField
+                  variant="filled"
+                  type="text"
+                  id="username"
+                  autoComplete="off"
+                  label="Username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                /><br/>
+                <TextField
+                  variant="filled" 
+                  type="password"
+                  id="password"
+                  autoComplete="current-password"
+                  label="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                /><br/>
+                <Button type="submit">
+                    {isLoading ? "Loading..." : "Login"}
+                </Button>
+                <div>
+                    {errors.map((err) => (
+                      <span key={err}>{err}</span>
+                    ))}
+                </div>
+              </form>            
+            </Typography>
+            <Typography>
+              Don't have an account? &nbsp;
+              <Button onClick={() => setShowLogin(false)}>
+                Sign Up
+              </Button>
+            </Typography>
+          </CardContent>
+        </Card>
     </div>
+    ) : (
+      <div>
+        <Card sx={{ minWidth: 275 }} style={{backgroundColor: "#B1DFB0"}}>
+                <CardContent>
+                    <Typography >
+                      <Signup onLogin={onLogin} />
+                      Already have an account? &nbsp;
+                      <Button onClick={() => setShowLogin(true)}>
+                        Log In
+                    </Button>
+                    </Typography>
+                </CardContent>
+            </Card>
+      </div>
+    )}
+  </div>
   );
-
-  
-
-
-
 }
 
 export default Login;

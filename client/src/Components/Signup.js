@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
 
 function Signup({ onLogin }) {
   const [username, setUsername] = useState("");
@@ -46,7 +51,91 @@ function Signup({ onLogin }) {
 
     return (
         <div>
-        <form onSubmit={handleSubmit}>
+              <Card align='center' sx={{ minWidth: 275 }} style={{backgroundColor: "#B1DFB0"}}>
+                Create an account
+                <CardContent align='center'>
+                    <Typography >
+                      <form onSubmit={handleSubmit}>
+                        <TextField
+                          required
+                          variant="filled"
+                          type="text"
+                          name="comment"
+                          autoComplete="off"
+                          value={username}
+                          label="Username"
+                          onChange={(e) => setUsername(e.target.value)}
+                          /><br/>
+                        <TextField
+                          required
+                          variant="filled"
+                          type="password"
+                          name="comment"
+                          autoComplete="off"
+                          value={password}
+                          label="Password"
+                          onChange={(e) => setPassword(e.target.value)}
+                          /><br/>
+                        <TextField
+                          required
+                          variant="filled"
+                          type="text"
+                          name="comment"
+                          autoComplete="off"
+                          value={firstname}
+                          label="First Name"
+                          onChange={(e) => setFirstName(e.target.value)}
+                          /><br/>
+                        <TextField
+                          required
+                          variant="filled"
+                          type="text"
+                          name="comment"
+                          autoComplete="off"
+                          value={lastname}
+                          label="Last Name"
+                          onChange={(e) => setLastName(e.target.value)}
+                          /><br/>
+                        <TextField
+                          required
+                          variant="filled"
+                          type="text"
+                          name="comment"
+                          autoComplete="off"
+                          value={email}
+                          label="Email"
+                          onChange={(e) => setEmail(e.target.value)}
+                          /><br/>
+                        <TextField
+                          variant="filled"
+                          type="text"
+                          name="comment"
+                          autoComplete="off"
+                          value={avatar_url}
+                          label="Avatar URL"
+                          onChange={(e) => setAvatar_url(e.target.value)}
+                          /><br/>
+                        <Button type="submit">{isLoading ? "Loading..." : "Sign Up"}</Button><br/>
+                        <div>
+                            {errors.map((err) => (
+                            <li key={err}>{err}</li>
+                            ))}
+                        </div>
+                      </form><br/>
+                      <div>
+                        {errors.map((err) => (
+                          <li key={err}>{err}</li>
+                        ))}
+                      </div>
+                    </Typography>
+                </CardContent>
+              </Card>
+
+
+
+
+
+        {/* <form onSubmit={handleSubmit}>
             <h2>Please Sign In</h2>
             <div>
               <input 
@@ -114,8 +203,12 @@ function Signup({ onLogin }) {
                   <li key={err}>{err}</li>
                 ))}
             </div>
-          </form>
+          </form> */}
+
+
         </div>
+
+
     )
 }
 

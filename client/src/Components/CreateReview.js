@@ -7,8 +7,6 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 
-
-
 function CreateReview( { user, onAddReview, property } ) {
     const [comment, setComment] = useState("")
     const [rating, setRating] = useState("")

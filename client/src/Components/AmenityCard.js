@@ -4,8 +4,6 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 
-
-
 function AmenityCard( { amenity } ) {
 
     const Item = styled(Paper)(({ theme }) => ({

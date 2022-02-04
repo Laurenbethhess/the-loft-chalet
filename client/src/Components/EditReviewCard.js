@@ -6,8 +6,6 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 
-
-
 function EditReviewCard( { review, onUpdateReview, onDeleteReview } ) {
     const [comment, setComment] = useState(review.comment)
     const [rating, setRating] = useState(review.rating)
@@ -54,7 +52,6 @@ function EditReviewCard( { review, onUpdateReview, onDeleteReview } ) {
           })
         }
 
-
     return (
         <div className="create_card">
         <Card sx={{ minWidth: 275 }} style={{backgroundColor: "#B1DFB0"}}>
@@ -83,40 +80,9 @@ function EditReviewCard( { review, onUpdateReview, onDeleteReview } ) {
                 <Typography>
                     <Button onClick={handleDeleteClick}>Delete Review</Button>
                 </Typography>
-
             </CardContent>
         </Card>
       </div>
-
-
-
-
-
-
-        // <div className="welcome">
-        //     <br/>
-        //     <form onSubmit={handleFormSubmit}>
-        //         <input
-        //             type="text"
-        //             name="comment"
-        //             autoComplete="off"
-        //             value={comment}
-        //             placeholder="review"
-        //             onChange={(e) => setComment(e.target.value)}
-        //         />
-        //         <br/>
-        //         <button type="submit">Update</button>
-        //         <br/><br/><br/>
-        //         <div>
-        //             {errors.map((err) => (
-        //             <li key={err}>{err}</li>
-        //             ))}
-        //         </div>
-        //     </form>
-        //     <br/>
-        //     <button onClick={handleDeleteClick}>Delete Review</button>
-        //     <br/>
-        // </div>
     )
 }
 
