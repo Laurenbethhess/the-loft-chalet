@@ -46,10 +46,10 @@ function Login({ onLogin }) {
         <Card align='center' sx={{ minWidth: 275 }} style={{backgroundColor: "#B1DFB0"}}>
           <p>Please Login </p>       
           <CardContent align='center'>
-
             <Typography >
               <form onSubmit={handleSubmit}>
                 <TextField
+                  sx={{bgcolor: '#cfe8fc' }}
                   variant="filled"
                   type="text"
                   id="username"
@@ -59,6 +59,7 @@ function Login({ onLogin }) {
                   onChange={(e) => setUsername(e.target.value)}
                 /><br/>
                 <TextField
+                  sx={{bgcolor: '#cfe8fc' }}
                   variant="filled" 
                   type="password"
                   id="password"

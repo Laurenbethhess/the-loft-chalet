@@ -59,6 +59,7 @@ function EditReviewCard( { review, onUpdateReview, onDeleteReview } ) {
                 <Typography >
                     <form onSubmit={handleFormSubmit}>
                         <TextField
+                          sx={{bgcolor: '#cfe8fc' }}
                           multiline
                           variant="filled"
                           type="text"

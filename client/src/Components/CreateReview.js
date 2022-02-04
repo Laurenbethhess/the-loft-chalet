@@ -46,11 +46,12 @@ function CreateReview( { user, onAddReview, property } ) {
   
     return (
           <div className="create_card">
-            <Card sx={{ minWidth: 275 }} style={{backgroundColor: "#B1DFB0"}}>
+            <Card sx={{ minWidth: 275, bgcolor: '#cfe8fc' }} style={{backgroundColor: "#B1DFB0"}}>
                 <CardContent>
                     <Typography >
                       <form onSubmit={handleSubmit}>
                         <TextField
+                          sx={{bgcolor: '#cfe8fc' }}
                           multiline
                           variant="filled"
                           type="text"

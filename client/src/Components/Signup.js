@@ -57,6 +57,7 @@ function Signup({ onLogin }) {
                     <Typography >
                       <form onSubmit={handleSubmit}>
                         <TextField
+                          sx={{bgcolor: '#cfe8fc' }}
                           required
                           variant="filled"
                           type="text"
@@ -67,6 +68,7 @@ function Signup({ onLogin }) {
                           onChange={(e) => setUsername(e.target.value)}
                           /><br/>
                         <TextField
+                          sx={{bgcolor: '#cfe8fc' }}
                           required
                           variant="filled"
                           type="password"
@@ -77,6 +79,7 @@ function Signup({ onLogin }) {
                           onChange={(e) => setPassword(e.target.value)}
                           /><br/>
                         <TextField
+                          sx={{bgcolor: '#cfe8fc' }}
                           required
                           variant="filled"
                           type="text"
@@ -87,6 +90,7 @@ function Signup({ onLogin }) {
                           onChange={(e) => setFirstName(e.target.value)}
                           /><br/>
                         <TextField
+                          sx={{bgcolor: '#cfe8fc' }}
                           required
                           variant="filled"
                           type="text"
@@ -97,6 +101,7 @@ function Signup({ onLogin }) {
                           onChange={(e) => setLastName(e.target.value)}
                           /><br/>
                         <TextField
+                          sx={{bgcolor: '#cfe8fc' }}
                           required
                           variant="filled"
                           type="text"
@@ -107,6 +112,7 @@ function Signup({ onLogin }) {
                           onChange={(e) => setEmail(e.target.value)}
                           /><br/>
                         <TextField
+                          sx={{bgcolor: '#cfe8fc' }}
                           variant="filled"
                           type="text"
                           name="comment"

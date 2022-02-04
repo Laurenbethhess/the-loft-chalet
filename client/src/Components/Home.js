@@ -28,7 +28,7 @@ function Home( { property, reviews } ) {
             <div className="welcome">
                     Welcome to {property.name}!
             </div>
-            <div style={{paddingTop:50, display:'flex', justifyContent:'center', alignItems:'center'}}>
+            <div style={{paddingTop:25, display:'flex', justifyContent:'center', alignItems:'center'}}>
                 <img className="home_photo"  src={homePhoto.photo_url}/>
             </div>
             <div className="description">
