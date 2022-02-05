@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import AmenityCard from "./AmenityCard";
 import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
@@ -16,7 +15,6 @@ function Amenity( {} ) {
     const [filterBy, setFilterBy] = useState('')
     const [search, setSearch] = useState("")
 
-
     useEffect(() => {
         // fetch('http://localhost:3000/amenities')
         fetch('https://the-loft-chalet.herokuapp.com/amenities')
@@ -24,10 +22,9 @@ function Amenity( {} ) {
         .then(amenities => setAmenities(amenities))
     }, [])
 
-    const renderAmenities = amenities.map(amenity => <AmenityCard amenity={amenity} key={amenity.id} />)
     const filteredAmenities = amenities.filter(amenity => amenity.name === filterBy) 
     const renderFilteredAmenities = filteredAmenities.map(amenity => <AmenityCard amenity={amenity} key={amenity.id} />)
-    const searchedAmenities = amenities.filter(amenity => amenity.name.toLowerCase().includes(search.toLowerCase()))
+    const searchedAmenities = amenities.filter(amenity => amenity.name.toLowerCase().includes(search.toLowerCase()) || amenity.description.toLowerCase().includes(search.toLowerCase()))
     const renderSearchedAmenities = searchedAmenities.map(amenity => <AmenityCard amenity={amenity} key={amenity.id} />)
 
     const onFilterChange = (e) => {
@@ -45,6 +42,10 @@ function Amenity( {} ) {
 
     return (
         <div align='center' className="amenities">
+            <Typography style={{fontSize: 30, fontFamily: "Courier"}} align='center' variant="p" gutterBottom component="div">
+                Amenities
+            </Typography>
+
             <Card sx={{ minWidth: 275, bgcolor: '#cfe8fc' }} style={{backgroundColor: "#B1DFB0"}}>
                 <CardContent>
                 <FormControl sx={{ minWidth: 275, bgcolor: '#cfe8fc' }}>
@@ -55,7 +56,16 @@ function Amenity( {} ) {
                                 onChange={onFilterChange}
                             >
                                 <MenuItem value="">No Filter</MenuItem>
+                                <MenuItem value="Bathrooms">Bathrooms</MenuItem>
+                                <MenuItem value="Bedroom">Bedroom</MenuItem>
+                                <MenuItem value="Dining">Dining</MenuItem>
+                                <MenuItem value="Essentials">Essentials</MenuItem>
+                                <MenuItem value="Extras">Extras</MenuItem>
+                                <MenuItem value="Guests">Guests</MenuItem>
                                 <MenuItem value="Kitchen">Kitchen</MenuItem>
+                                <MenuItem value="Laundry">Laundry</MenuItem>
+                                <MenuItem value="Living Area">Living Area</MenuItem>
+                                <MenuItem value="Outside">Outside</MenuItem>
                             </Select>
                     </FormControl>
                     <br/><br/>
