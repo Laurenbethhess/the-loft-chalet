@@ -61,7 +61,7 @@ function Signup({ onLogin }) {
                           value={username}
                           label="Username"
                           onChange={(e) => setUsername(e.target.value)}
-                          /><br/><br/>
+                          /><br/>
                         <TextField
                           sx={{bgcolor: '#cfe8fc' }}
                           required
@@ -72,7 +72,7 @@ function Signup({ onLogin }) {
                           value={password}
                           label="Password"
                           onChange={(e) => setPassword(e.target.value)}
-                          /><br/><br/>
+                          /><br/>
                         <TextField
                           sx={{bgcolor: '#cfe8fc' }}
                           required
@@ -83,7 +83,7 @@ function Signup({ onLogin }) {
                           value={firstname}
                           label="First Name"
                           onChange={(e) => setFirstName(e.target.value)}
-                          /><br/><br/>
+                          /><br/>
                         <TextField
                           sx={{bgcolor: '#cfe8fc' }}
                           required
@@ -94,7 +94,7 @@ function Signup({ onLogin }) {
                           value={lastname}
                           label="Last Name"
                           onChange={(e) => setLastName(e.target.value)}
-                          /><br/><br/>
+                          /><br/>
                         <TextField
                           sx={{bgcolor: '#cfe8fc' }}
                           required
@@ -105,24 +105,24 @@ function Signup({ onLogin }) {
                           value={email}
                           label="Email"
                           onChange={(e) => setEmail(e.target.value)}
-                          /><br/><br/>
+                          /><br/>
                         <TextField
                           sx={{bgcolor: '#cfe8fc' }}
                           variant="filled"
                           type="text"
-                          name="comment"
+                          name="avatar_url"
                           autoComplete="off"
                           value={avatar_url}
                           label="Avatar URL"
                           onChange={(e) => setAvatar_url(e.target.value)}
-                          /><br/><br/>
-                        <Button color="primary" variant="outlined" type="submit">{isLoading ? "Loading..." : "Sign Up"}</Button><br/>
+                          /><br/>
+                        <Button type="submit">{isLoading ? "Loading..." : "Sign Up"}</Button><br/>
                         <div>
                             {errors.map((err) => (
                             <li key={err}>{err}</li>
                             ))}
                         </div>
-                      </form>
+                      </form><br/>
                       <div>
                         {errors.map((err) => (
                           <li key={err}>{err}</li>
@@ -130,7 +130,83 @@ function Signup({ onLogin }) {
                       </div>
                     </Typography>
                 </CardContent>
-              </Card>          
+              </Card>
+
+
+
+
+
+        {/* <form onSubmit={handleSubmit}>
+            <h2>Please Sign In</h2>
+            <div>
+              <input 
+                type="text"
+                placeholder="username"
+                id="username"
+                autoComplete="off"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+            </div>
+            <div>
+              <input 
+                type="password"
+                placeholder="password"
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                autoComplete="current-password"
+              />
+            </div>
+            <div>
+              <input 
+                type="text"
+                placeholder="first name"
+                id="first_name"
+                value={firstname}
+                onChange={(e) => setFirstName(e.target.value)}
+              />
+            </div>
+            <div>
+              <input 
+                type="text"
+                placeholder="last name"
+                id="last_name"
+                value={lastname}
+                onChange={(e) => setLastName(e.target.value)}
+              />
+            </div>
+            <div>
+              <input 
+                type="text"
+                placeholder="email"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div>
+              <input 
+                type="text"
+                placeholder="avatar_url"
+                id="avatar"
+                value={avatar_url}
+                onChange={(e) => setAvatar_url(e.target.value)}
+              />
+            </div>
+            <div>
+              <button type="submit">
+                  {isLoading ? "Loading..." : "Sign Up"}
+              </button>
+            </div>
+            <div>
+                {errors.map((err) => (
+                  <li key={err}>{err}</li>
+                ))}
+            </div>
+          </form> */}
+
+
         </div>
 
 

@@ -20,7 +20,7 @@ function Contact( {} ) {
                 <Card sx={{ minWidth: 275 }} style={{backgroundColor: "#B1DFB0"}}>
                     <CardContent>
                         <Typography style={{fontFamily: "Courier"}} align='center' variant="h5" gutterBottom component="div">
-                            Email:  Mavis@gmail.com
+                            Email:  LaurenBethHess@gmail.com
                         </Typography>
                         <Typography style={{fontFamily: "Courier"}} align='center' variant="h5" gutterBottom component="div">
                             Phone:  xxx-xxx-xxxx

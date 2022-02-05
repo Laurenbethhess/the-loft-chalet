@@ -49,15 +49,7 @@ function CreateReview( { user, onAddReview, property, onLogin } ) {
     return (
           <div className="create_card">
             <Card sx={{ minWidth: 275, bgcolor: '#cfe8fc' }} style={{backgroundColor: "#B1DFB0"}}>
-                <CardContent align='center'>
-                    <Typography style={{fontFamily: "Courier"}}>
-                      Create a review here!    
-                      <br/>
-                      You can only create one review. 
-                      <br/>
-                      If you've already created a review, you can edit your review under 'Edit Review'
-                    </Typography>
-                      <br/>
+                <CardContent>
                     <Typography >
                       <form onSubmit={handleSubmit}>
                         <TextField
@@ -71,15 +63,13 @@ function CreateReview( { user, onAddReview, property, onLogin } ) {
                           label="Review"
                           onChange={(e) => setComment(e.target.value)}
                         />
-                        <br/><br/>
                         <Rating
                           required
                           name="simple-controlled"
                           value={rating}
                           onChange={(e) => setRating(e.target.value)}
                         />
-                        <br/><br/>
-                        <Button color="primary" variant="outlined" type="submit">Submit</Button>
+                        <Button type="submit">Submit</Button>
                         <div>
                             {errors.map((err) => (
                             <li key={err}>{err}</li>
