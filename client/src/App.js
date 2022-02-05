@@ -32,8 +32,8 @@ function App() {
   }, [])
 
   useEffect(() => {
-    fetch('http://localhost:3000/properties/1')
-    // fetch('https://the-loft-chalet.herokuapp.com/properties/1')
+    // fetch('http://localhost:3000/properties/1')
+    fetch('https://the-loft-chalet.herokuapp.com/properties/1')
     .then(r => r.json())
     .then(property => setProperty(property))
   }, [])

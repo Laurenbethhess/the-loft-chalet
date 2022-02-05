@@ -1,5 +1,5 @@
 Amenity.destroy_all
-# Photo.destroy_all
+Photo.destroy_all
 
 
 Amenity.create(id: 1, name: "Guests", description: "This home comfortably sleeps 10.", property_id: 1)
@@ -33,4 +33,27 @@ Amenity.create(id: 28, name: "Extras", description: "Lake access.", property_id:
 Amenity.create(id: 29, name: "Extras", description: "Pool access.", property_id: 1)
 
 
-# Photo.create(id: 1, property_id: 1)
+Photo.create(id: 1, property_id: 1, photo_name: "Home", photo_url: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-41105865/original/98928e62-0245-406d-b680-2406b900dc4a.jpeg?im_w=720")
+Photo.create(id: 2, property_id: 1, photo_name: "Great Room", photo_url: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-41105865/original/447c9d49-153e-4d08-aa5c-20390d86e5f2.jpeg?im_w=720")
+Photo.create(id: 3, property_id: 1, photo_name: "Great Room", photo_url: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-41105865/original/009e6be8-c809-4771-b13e-33eb2fda0950.jpeg?im_w=1200")
+Photo.create(id: 4, property_id: 1, photo_name: "Great Room", photo_url: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-41105865/original/3731a6b6-a5cc-4350-9401-9a24cf0d4b36.jpeg?im_w=720")
+Photo.create(id: 5, property_id: 1, photo_name: "Kitchen", photo_url: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-41105865/original/4aec2350-f12b-4f11-b5f3-b4cb9dda4715.jpeg?im_w=720")
+Photo.create(id: 6, property_id: 1, photo_name: "Dining", photo_url: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-41105865/original/170ad247-9bb3-41cc-a26a-fc990e5932c0.jpeg?im_w=720")
+Photo.create(id: 7, property_id: 1, photo_name: "Pool Room", photo_url: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-41105865/original/78cabe5f-29cd-46c1-9061-81095a66fc76.jpeg?im_w=720")
+Photo.create(id: 8, property_id: 1, photo_name: "Master", photo_url: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-41105865/original/ed032259-b7c7-456c-9cea-65e8c863c565.jpeg?im_w=720")
+Photo.create(id: 9, property_id: 1, photo_name: "Master", photo_url: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-41105865/original/39ca0309-223c-40b0-83bb-54db0e534561.jpeg?im_w=720")
+Photo.create(id: 10, property_id: 1, photo_name: "Bedroom 2", photo_url: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-41105865/original/6663f8fb-28f1-4daa-88d0-8bc1f052dbc5.jpeg?im_w=720")
+Photo.create(id: 11, property_id: 1, photo_name: "Bedroom 3", photo_url: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-41105865/original/3a8c8329-65e5-4afd-8f1a-449db482655e.jpeg?im_w=720")
+Photo.create(id: 12, property_id: 1, photo_name: "The Loft", photo_url: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-41105865/original/2a5bbf08-caa9-44cf-94c8-37de652ef6cf.jpeg?im_w=1200")
+Photo.create(id: 13, property_id: 1, photo_name: "Living Area", photo_url: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-41105865/original/d4be71cf-2657-4fb1-9c61-3fa8268acc17.jpeg?im_w=720")
+Photo.create(id: 14, property_id: 1, photo_name: "Full Bath", photo_url: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-41105865/original/8db4cd53-6d6b-4356-b0ed-2cf5e69689ba.jpeg?im_w=1200")
+Photo.create(id: 15, property_id: 1, photo_name: "3/4 Bath", photo_url: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-41105865/original/d7adccf1-0815-459b-9993-dbdf2fe92a6d.jpeg?im_w=1200")
+Photo.create(id: 16, property_id: 1, photo_name: "1/2 Bath", photo_url: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-41105865/original/4b5a5f88-8acd-443c-b009-97276413bf23.jpeg?im_w=720")
+Photo.create(id: 17, property_id: 1, photo_name: "Lake", photo_url: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-41105865/original/0f674071-89ef-4a9f-877e-9e110c3d5086.jpeg?im_w=1200")
+Photo.create(id: 18, property_id: 1, photo_name: "Beach", photo_url: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-41105865/original/493a22b1-ccf9-4048-bb8c-75a7addcb1a1.jpeg?im_w=720")
+Photo.create(id: 19, property_id: 1, photo_name: "Lake", photo_url: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-41105865/original/4373a36f-e992-4343-ad83-a9dafa527265.jpeg?im_w=720")
+Photo.create(id: 20, property_id: 1, photo_name: "Pool", photo_url: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-41105865/original/37affbf3-1296-4a44-9697-64b22a972f43.jpeg?im_w=720")
+Photo.create(id: 21, property_id: 1, photo_name: "Porch", photo_url: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-41105865/original/c70fade0-fb00-4d74-8755-beca95ef3c8b.jpeg?im_w=1200")
+Photo.create(id: 22, property_id: 1, photo_name: "Fire Pit", photo_url: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-41105865/original/036744dc-7a21-4b20-b565-9ba592731752.jpeg?im_w=720")
+
+
