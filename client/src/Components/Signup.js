@@ -110,7 +110,7 @@ function Signup({ onLogin }) {
                           sx={{bgcolor: '#cfe8fc' }}
                           variant="filled"
                           type="text"
-                          name="comment"
+                          name="avatar_url"
                           autoComplete="off"
                           value={avatar_url}
                           label="Avatar URL"
