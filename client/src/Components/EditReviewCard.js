@@ -56,6 +56,10 @@ function EditReviewCard( { review, onUpdateReview, onDeleteReview } ) {
         <div className="create_card">
         <Card sx={{ minWidth: 275 }} style={{backgroundColor: "#B1DFB0"}}>
             <CardContent align='center'>
+                <Typography style={{fontFamily: "Courier"}}>
+                    Edit Review
+                </Typography>
+                <br/>
                 <Typography >
                     <form onSubmit={handleFormSubmit}>
                         <TextField
@@ -69,8 +73,8 @@ function EditReviewCard( { review, onUpdateReview, onDeleteReview } ) {
                           label="Edit Review"
                           onChange={(e) => setComment(e.target.value)}
                         />
-                        <br/>
-                        <Button type="submit">Update</Button>
+                        <br/><br/>
+                        <Button color="primary" variant="outlined" type="submit">Update</Button>
                         <div>
                             {errors.map((err) => (
                             <li key={err}>{err}</li>
@@ -78,8 +82,9 @@ function EditReviewCard( { review, onUpdateReview, onDeleteReview } ) {
                         </div>
                     </form>            
                 </Typography>
+                <br/>
                 <Typography>
-                    <Button onClick={handleDeleteClick}>Delete Review</Button>
+                    <Button color="primary" variant="outlined" onClick={handleDeleteClick}>Delete Review</Button>
                 </Typography>
             </CardContent>
         </Card>

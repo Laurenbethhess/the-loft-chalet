@@ -53,7 +53,7 @@ function Login({ onLogin }) {
                   label="Username"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
-                /><br/>
+                /><br/><br/>
                 <TextField
                   sx={{bgcolor: '#cfe8fc' }}
                   variant="filled" 
@@ -63,8 +63,8 @@ function Login({ onLogin }) {
                   label="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                /><br/>
-                <Button type="submit">
+                /><br/><br/>
+                <Button color="primary" variant="outlined" type="submit">
                     {isLoading ? "Loading..." : "Login"}
                 </Button>
                 <div>
@@ -74,9 +74,10 @@ function Login({ onLogin }) {
                 </div>
               </form>            
             </Typography>
+            <br/>
             <Typography>
               Don't have an account? &nbsp;
-              <Button onClick={() => setShowLogin(false)}>
+              <Button color="primary" variant="outlined" onClick={() => setShowLogin(false)}>
                 Sign Up
               </Button>
             </Typography>
@@ -90,12 +91,13 @@ function Login({ onLogin }) {
                     <Typography >
                       <Signup onLogin={onLogin} />
                       Already have an account? &nbsp;
-                      <Button onClick={() => setShowLogin(true)}>
+                      <Button color="primary" variant="outlined" onClick={() => setShowLogin(true)}>
                         Log In
                     </Button>
                     </Typography>
                 </CardContent>
             </Card>
+            <br/><br/><br/><br/><br/>
       </div>
     )}
   </div>

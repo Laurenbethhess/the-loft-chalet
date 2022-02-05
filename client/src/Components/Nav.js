@@ -65,7 +65,7 @@ function Nav( { user, onSetUser, reviews } ) {
                     }
                 </Typography>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={{fontFamily: "Courier"}}>
-                    <Button  style={{fontFamily: "Courier", fontSize: 20}} onClick={handleLogoutClick} color="inherit">Logout</Button>
+                    <Button color="primary" variant="outlined"  style={{fontFamily: "Courier", fontSize: 20}} onClick={handleLogoutClick} color="inherit">Logout</Button>
                 </Typography>
 
                 </Toolbar>
