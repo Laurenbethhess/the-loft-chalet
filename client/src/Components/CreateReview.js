@@ -69,7 +69,7 @@ function CreateReview( { user, onAddReview, property, onLogin } ) {
                           value={rating}
                           onChange={(e) => setRating(e.target.value)}
                         />
-                        <Button type="submit">Submit</Button>
+                        <Button variant="outlined" type="submit">Submit</Button>
                         <div>
                             {errors.map((err) => (
                             <li key={err}>{err}</li>

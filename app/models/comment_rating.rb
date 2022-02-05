@@ -2,7 +2,7 @@ class CommentRating < ApplicationRecord
   belongs_to :property
   belongs_to :user
 
-  validates :user, uniqueness: true
+  validates :user, uniqueness: true  
   validates :rating, presence: true
 
   attribute :date_created
