@@ -48,8 +48,6 @@ function App() {
     });
   }, []);
 
-// if (!user) return <Login onLogin={setUser} />
-
 function handleAddReview(newReview) {
   setReviews([...reviews, newReview])
 }

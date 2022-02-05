@@ -15,7 +15,7 @@ function AmenityCard( { amenity } ) {
       }));
       
     return (
-            <div style={{backgroundColor: '#cfe8fc'}}>
+            <div style={{paddingTop: 10, backgroundColor: '#cfe8fc'}}>
                 <Box sx={{ flexGrow: 1 }}>
                     <Grid container spacing={2} className="card">
                         <Grid item xs={4}>
