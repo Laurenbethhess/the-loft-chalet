@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :comment_ratings
-  resources :users
+  resources :users, only: [:show, :create]
   resources :photos, only: [:index, :show]
   resources :amenities
   resources :properties, only: [:index, :show]
