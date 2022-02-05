@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Rating from '@mui/material/Rating';
 import AppBar from '@mui/material/AppBar';
@@ -33,8 +33,7 @@ function Nav( { user, onSetUser, reviews } ) {
                         <>Hello, {user.first_name} !</>
                     :
                         <></>
-                    }
-                        
+                    }  
                 </Typography>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={{fontFamily: "Courier"}}>
                     <Link to="/">Main</Link>
@@ -54,9 +53,6 @@ function Nav( { user, onSetUser, reviews } ) {
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={{fontFamily: "Courier"}}>
                     <Link to="/contact">Contact</Link>
                 </Typography>
-                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={{fontFamily: "Courier"}}>
-                    <Link to="/login">Login</Link>
-                </Typography>
                 <Typography component="div" sx={{ flexGrow: 1 }} style={{fontFamily: "Courier"}}>
                     {lastElement?
                         < Rating name="read-only" value={lastElement.property.average_rating} readOnly />
@@ -65,9 +61,12 @@ function Nav( { user, onSetUser, reviews } ) {
                     }
                 </Typography>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={{fontFamily: "Courier"}}>
-                    <Button  style={{fontFamily: "Courier", fontSize: 20}} onClick={handleLogoutClick} color="inherit">Logout</Button>
+                    {user?
+                        <Button  style={{fontFamily: "Courier", fontSize: 20}} onClick={handleLogoutClick} color="inherit">Logout</Button>
+                    :
+                        <Link to="/login">Login</Link>
+                    } 
                 </Typography>
-
                 </Toolbar>
             </AppBar>
             </Box>
