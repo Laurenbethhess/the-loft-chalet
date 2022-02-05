@@ -13,16 +13,12 @@ private
     render json: { errors: ["Not authorized"] }, status: :unauthorized unless @current_user
   end
 
-
   def render_invalid(exception)
     render json: { errors: exception.record.errors.full_messages }, status: :unprocessable_entity
   end
 
- 
-
   def render_not_found
     render json: { error: "Item not found" }, status: :not_found
   end
-
 
 end
