@@ -1,7 +1,36 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+Amenity.destroy_all
+# Photo.destroy_all
+
+
+Amenity.create(id: 1, name: "Guests", description: "This home comfortably sleeps 10.", property_id: 1)
+Amenity.create(id: 2, name: "Bedroom 1", description: "King bed, gas fireplace, smart t.v.", property_id: 1)
+Amenity.create(id: 3, name: "Bedroom 2", description: "Queen bed, smart t.v.", property_id: 1)
+Amenity.create(id: 4, name: "Bedroom 3", description: "Two twin beds.", property_id: 1)
+Amenity.create(id: 5, name: "Bedroom 4 - 'The Loft'", description: "King bed, 2 twin beds, and smart t.v.", property_id: 1)
+Amenity.create(id: 6, name: "Living area - first floor", description: "Smart t.v., 2 futons.", property_id: 1)
+Amenity.create(id: 7, name: "Bathrooms", description: "One full, one 3/4, one half.", property_id: 1)
+Amenity.create(id: 8, name: "Essentials", description: "Hair dryer, towels.", property_id: 1)
+Amenity.create(id: 9, name: "Essentials", description: "Bedding.", property_id: 1)
+Amenity.create(id: 10, name: "Laundry", description: "Washer and Dryer", property_id: 1)
+Amenity.create(id: 11, name: "Pool room", description: "Pool table.", property_id: 1)
+Amenity.create(id: 12, name: "Great Room", description: "Sectional couch, smart t.v., fire place.", property_id: 1)
+Amenity.create(id: 13, name: "Dining", description: "Farmhouse table.", property_id: 1)
+Amenity.create(id: 14, name: "Dining", description: "Kitchen island.", property_id: 1)
+Amenity.create(id: 15, name: "Kitchen", description: "Electric oven and stove top and island electric range.", property_id: 1)
+Amenity.create(id: 16, name: "Kitchen", description: " Full refrigerator and beverage fridge.", property_id: 1)
+Amenity.create(id: 17, name: "Kitchen", description: "Microwave.", property_id: 1)
+Amenity.create(id: 18, name: "Kitchen", description: "Dishwasher.", property_id: 1)
+Amenity.create(id: 19, name: "Kitchen", description: "Pots and pans.", property_id: 1)
+Amenity.create(id: 20, name: "Kitchen", description: "Utensils and crockery.", property_id: 1)
+Amenity.create(id: 21, name: "Kitchen", description: "Belgian waffle maker.", property_id: 1)
+Amenity.create(id: 22, name: "Kitchen", description: "Air popcorn machine.", property_id: 1)
+Amenity.create(id: 23, name: "Parking", description: "Private, 4 cars.", property_id: 1)
+Amenity.create(id: 24, name: "Outside", description: "Gas grill", property_id: 1)
+Amenity.create(id: 25, name: "Outside", description: "Firepit.", property_id: 1)
+Amenity.create(id: 26, name: "Great Room", description: "Sectional couch, smart t.v., fire place.", property_id: 1)
+Amenity.create(id: 27, name: "Extras", description: "Air conditioner mini split.", property_id: 1)
+Amenity.create(id: 28, name: "Extras", description: "Lake access.", property_id: 1)
+Amenity.create(id: 29, name: "Extras", description: "Pool access.", property_id: 1)
+
+
+# Photo.create(id: 1, property_id: 1)
