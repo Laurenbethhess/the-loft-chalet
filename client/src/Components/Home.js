@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Calendar from "./TheCalendar"
 
-function Home( { property, reviews } ) {
+function Home( { property, reviews, user } ) {
     const [homePhoto, setHomePhoto] = useState('')
 
     useEffect(() => {
@@ -41,9 +41,16 @@ function Home( { property, reviews } ) {
                     </Typography>
                 </Box>
             </div>
-            <div  className="home_photo">
-                <Calendar />
-            </div>
+            {/* {user?
+                <div  className="home_photo">
+                    <Calendar />
+                </div>
+            : 
+                <div  className="home_photo">
+                    <Calendar />
+                </div>
+            } */}
+            
             
             <br/>
             {renderReviews}

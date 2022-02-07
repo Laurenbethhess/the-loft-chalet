@@ -79,7 +79,6 @@ GEM
       activesupport
     concurrent-ruby (1.1.9)
     crass (1.0.6)
-    custom_error_message (1.1.1)
     debug (1.4.0)
       irb (>= 1.3.6)
       reline (>= 0.2.7)
@@ -180,7 +179,6 @@ DEPENDENCIES
   active_model_serializers (~> 0.10.13)
   bcrypt (~> 3.1.7)
   bootsnap
-  custom_error_message
   debug
   pg (~> 1.1)
   puma (~> 5.0)
