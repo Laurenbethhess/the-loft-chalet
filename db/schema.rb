@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_01_160639) do
+ActiveRecord::Schema.define(version: 2022_02_07_190341) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(version: 2022_02_01_160639) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["property_id"], name: "index_amenities_on_property_id"
+  end
+
+  create_table "calendars", force: :cascade do |t|
+    t.string "property_name"
+    t.bigint "property_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["property_id"], name: "index_calendars_on_property_id"
   end
 
   create_table "comment_ratings", force: :cascade do |t|
@@ -59,6 +67,14 @@ ActiveRecord::Schema.define(version: 2022_02_01_160639) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "reservations", force: :cascade do |t|
+    t.string "date"
+    t.bigint "calendar_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["calendar_id"], name: "index_reservations_on_calendar_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "first_name"
@@ -71,7 +87,9 @@ ActiveRecord::Schema.define(version: 2022_02_01_160639) do
   end
 
   add_foreign_key "amenities", "properties"
+  add_foreign_key "calendars", "properties"
   add_foreign_key "comment_ratings", "properties"
   add_foreign_key "comment_ratings", "users"
   add_foreign_key "photos", "properties"
+  add_foreign_key "reservations", "calendars"
 end

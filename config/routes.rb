@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :reservations, only: [:index]
+  resources :calendars, only: [:show, :index]
   resources :comment_ratings
   resources :users, only: [:show, :create]
   resources :photos, only: [:index, :show]

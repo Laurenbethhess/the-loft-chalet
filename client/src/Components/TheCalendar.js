@@ -1,11 +1,24 @@
-import React, { } from "react";
+import { useState, useEffect } from "react";
 import Box from '@mui/material/Box';
 import { CalendarComponent } from '@syncfusion/ej2-react-calendars';
 
 function TheCalendar() {
+    const [calendar, setCalendar] = useState('');
+    const [dates, setDates] = useState([]);
     const minDate = new Date();
-    const values = [new Date('2/10/2022'), new Date('2/11/2022'), new Date('2/12/2022'), new Date('2/13/2022') ];
 
+
+    useEffect(() => {
+        // fetch('http://localhost:3000/reservations')
+        fetch('https://the-loft-chalet.herokuapp.com/reservations')
+        .then(r => r.json())
+        .then(dates => setDates(dates))
+      }, [])
+    
+
+    const justDates = dates.map(date => date.date)
+    const values = justDates.map(date => new Date(date))
+    
     return (
 
         <div align='center'>
