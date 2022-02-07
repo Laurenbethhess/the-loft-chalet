@@ -12,11 +12,11 @@ import CreateReview from "./Components/CreateReview";
 import EditReview from "./Components/EditReview";
 import TheCalendar from "./Components/TheCalendar";
 
-
 function App() {
   const [user, setUser] = useState(null);
   const [photos, setPhotos] = useState([]);
   const [reviews, setReviews] = useState([]);
+  const [reservations, setReservations] = useState([]);
   const [property, setProperty] = useState('')
   const [calendar, setCalendar] = useState('');
 
@@ -53,14 +53,32 @@ function App() {
   }, []);
 
   useEffect(() => {
-    // fetch('http://localhost:3000/calendars/1')
-    fetch('https://the-loft-chalet.herokuapp.com/calendars/1')
+    fetch('http://localhost:3000/calendars/1')
+    // fetch('https://the-loft-chalet.herokuapp.com/calendars/1')
     .then(r => r.json())
     .then(calendar => setCalendar(calendar))
   }, [])
 
+  // useEffect(() => {
+  //   fetch('http://localhost:3000/reservations')
+  //   // fetch('https://the-loft-chalet.herokuapp.com/reservations')
+  //   .then(r => r.json())
+  //   .then(reservations => setReservations(reservations))
+  // }, [])
+
+  useEffect(() => {
+    fetch('http://localhost:3000/calendars/1')
+    // fetch('https://the-loft-chalet.herokuapp.com/calendars/1')
+    .then(r => r.json())
+    .then(calendar => setReservations(calendar.reservations))
+  }, [])
+
 function handleAddReview(newReview) {
   setReviews([...reviews, newReview])
+}
+
+function handleAddReservation(newReservation) {
+  setReservations([...reservations, newReservation])
 }
 
 function handleUpdateReview(updatedReviewObj) {
@@ -79,6 +97,11 @@ function handleDeleteReview(id) {
   setReviews(finalReviews)
 }
 
+function handleDeleteReservation(id) {
+  const finalReservations = reservations.filter(reservation => reservation.id !== id)
+  setReservations(finalReservations)
+}
+
   return (
     <div >
       <Nav user={user} onSetUser={setUser} property={property} reviews={reviews}/>
@@ -90,8 +113,8 @@ function handleDeleteReview(id) {
         <Route path="/leave-a-review" element={<CreateReview onLogin={setUser} onAddReview={handleAddReview} user={user} property={property}/>}/>
         <Route path="/login" element={<Login user={user} onLogin={setUser} />}/>
         <Route path="/edit-review" element={<EditReview onLogin={setUser} onUpdateReview={handleUpdateReview} reviews={reviews} onDeleteReview={handleDeleteReview} user={user}/>}/>
-        <Route path="/calendar" element={<TheCalendar user={user} onLogin={setUser} calendar={calendar} />}/>
-
+        {/* <Route path="/calendar" element={<TheCalendar user={user} onLogin={setUser} calendar={calendar} onAddReservation={handleAddReservation} onSetCalendar={setCalendar} />}/> */}
+        <Route path="/calendar" element={<TheCalendar user={user} onLogin={setUser} reservations={reservations} onAddReservation={handleAddReservation} calendar={calendar} onDeleteReservation={handleDeleteReservation}  />}/>
       </Routes>
 
     </div>

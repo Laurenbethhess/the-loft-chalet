@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import Rating from '@mui/material/Rating';
 import Card from '@mui/material/Card';
