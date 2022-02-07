@@ -70,7 +70,7 @@ function EditReviewCard( { review, onUpdateReview, onDeleteReview } ) {
                           onChange={(e) => setComment(e.target.value)}
                         />
                         <br/>
-                        <Button variant="outlined" type="submit">Update</Button>
+                        <Button type="submit">Update</Button>
                         <div>
                             {errors.map((err) => (
                             <li key={err}>{err}</li>
@@ -79,7 +79,7 @@ function EditReviewCard( { review, onUpdateReview, onDeleteReview } ) {
                     </form>            
                 </Typography>
                 <Typography>
-                    <Button variant="outlined" onClick={handleDeleteClick}>Delete Review</Button>
+                    <Button onClick={handleDeleteClick}>Delete Review</Button>
                 </Typography>
             </CardContent>
         </Card>

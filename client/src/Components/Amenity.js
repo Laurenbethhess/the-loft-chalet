@@ -82,8 +82,9 @@ function Amenity( {} ) {
                             autoComplete="off"
                             label="Search"
                         />
-                        <br/><br/>
-                        <Button variant="outlined" onClick={resetInputField}>Reset Search</Button>
+                        <br/>
+                        <Button type="submit">Search</Button>
+                        <Button onClick={resetInputField}>Reset</Button>
                       </form>
                     </Typography>
                 </CardContent>
