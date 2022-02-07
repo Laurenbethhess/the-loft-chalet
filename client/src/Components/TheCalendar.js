@@ -11,23 +11,30 @@ import DeleteReservationCard from "./DeleteReservationCard";
 
 function TheCalendar( {user, onLogin, reservations, calendar, onAddReservation, onDeleteReservation }) {
     const minDate = new Date();      
-    // const reservations = calendar.reservations
     const justDates = reservations.map(reservation => reservation.date)
     const values = justDates.map(date => new Date(date))
     const [date, setDate] = useState("");
     const [calendar_id, setCalendarId] = useState(calendar.id);
     const [errors, setErrors] = useState([]);
     const userRenderedReservations = reservations.map(reservation => <DeleteReservationCard reservation={reservation} key={reservation.id} onDeleteReservation={onDeleteReservation}/>)
-
+    const [search, setSearch] = useState("")
+    const searchedReservations = reservations.filter(reservation => reservation.date.includes(search))
+    const renderSearchedReservations = searchedReservations.map(reservation => <DeleteReservationCard reservation={reservation} key={reservation.id} onDeleteReservation={onDeleteReservation}/>)
 
     if (!user) return <Login onLogin={onLogin} />
 
     const admin = user.id === 1
 
+    const handleSearchSubmit = (e) => {
+        e.preventDefault();
+        setSearch(search);
+      }
+
+
     function handleSubmit(e) {
         e.preventDefault();
-        // fetch("https://the-loft-chalet.herokuapp.com/reservations", {
-        fetch("http://localhost:3000/reservations", {
+        fetch("https://the-loft-chalet.herokuapp.com/reservations", {
+        // fetch("http://localhost:3000/reservations", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -49,7 +56,6 @@ function TheCalendar( {user, onLogin, reservations, calendar, onAddReservation, 
           })
       }
     
-    
     return (
 
         <div align='center'>
@@ -63,6 +69,8 @@ function TheCalendar( {user, onLogin, reservations, calendar, onAddReservation, 
             </Box>
             {admin?
                 <div className="create_card">
+                                       
+
                     <Card sx={{ minWidth: 275, bgcolor: '#cfe8fc' }} style={{backgroundColor: "#B1DFB0"}}>
                         <CardContent>
                             <Typography >
@@ -90,21 +98,36 @@ function TheCalendar( {user, onLogin, reservations, calendar, onAddReservation, 
                                     onChange={(e) => setCalendarId(e.target.value)}
                                 />
                                 <Button variant="outlined" type="submit">Submit</Button>
+                                <br/><br/>
                                 <div>
                                     {errors.map((err) => (
                                     <li key={err}>{err}</li>
                                     ))}
                                 </div>
                             </form>
-                            </Typography>
+                            <form onSubmit={handleSearchSubmit}>
+                                <TextField
+                                    type="text"
+                                    id="search"
+                                    value={search}
+                                    onChange={(e) => setSearch(e.target.value)}                  
+                                    sx={{bgcolor: '#cfe8fc' }}
+                                    variant="filled"
+                                    name="search"
+                                    autoComplete="off"
+                                    label="Search"
+                                />
+                            </form>
+                        </Typography>
+                        <br/><br/>
+                        {renderSearchedReservations}
                         </CardContent>
                     </Card>
                 </div>
                 :
                 <></>
             }
-            {userRenderedReservations}
-        <br/><br/>
+            <br/><br/><br/>
         </div>
 
     )

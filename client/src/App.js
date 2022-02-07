@@ -20,7 +20,6 @@ function App() {
   const [property, setProperty] = useState('')
   const [calendar, setCalendar] = useState('');
 
-
   useEffect(() => {
     // fetch('http://localhost:3000/photos')
     fetch('https://the-loft-chalet.herokuapp.com/photos')
@@ -53,22 +52,15 @@ function App() {
   }, []);
 
   useEffect(() => {
-    fetch('http://localhost:3000/calendars/1')
-    // fetch('https://the-loft-chalet.herokuapp.com/calendars/1')
+    // fetch('http://localhost:3000/calendars/1')
+    fetch('https://the-loft-chalet.herokuapp.com/calendars/1')
     .then(r => r.json())
     .then(calendar => setCalendar(calendar))
   }, [])
 
-  // useEffect(() => {
-  //   fetch('http://localhost:3000/reservations')
-  //   // fetch('https://the-loft-chalet.herokuapp.com/reservations')
-  //   .then(r => r.json())
-  //   .then(reservations => setReservations(reservations))
-  // }, [])
-
   useEffect(() => {
-    fetch('http://localhost:3000/calendars/1')
-    // fetch('https://the-loft-chalet.herokuapp.com/calendars/1')
+    // fetch('http://localhost:3000/calendars/1')
+    fetch('https://the-loft-chalet.herokuapp.com/calendars/1')
     .then(r => r.json())
     .then(calendar => setReservations(calendar.reservations))
   }, [])
@@ -113,10 +105,8 @@ function handleDeleteReservation(id) {
         <Route path="/leave-a-review" element={<CreateReview onLogin={setUser} onAddReview={handleAddReview} user={user} property={property}/>}/>
         <Route path="/login" element={<Login user={user} onLogin={setUser} />}/>
         <Route path="/edit-review" element={<EditReview onLogin={setUser} onUpdateReview={handleUpdateReview} reviews={reviews} onDeleteReview={handleDeleteReview} user={user}/>}/>
-        {/* <Route path="/calendar" element={<TheCalendar user={user} onLogin={setUser} calendar={calendar} onAddReservation={handleAddReservation} onSetCalendar={setCalendar} />}/> */}
         <Route path="/calendar" element={<TheCalendar user={user} onLogin={setUser} reservations={reservations} onAddReservation={handleAddReservation} calendar={calendar} onDeleteReservation={handleDeleteReservation}  />}/>
       </Routes>
-
     </div>
   );
 }
