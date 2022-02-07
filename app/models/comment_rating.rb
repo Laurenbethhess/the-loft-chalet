@@ -3,9 +3,12 @@ class CommentRating < ApplicationRecord
   belongs_to :user
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   validates :user, uniqueness: true, message: "You can only leave one review"
   validates :rating, presence: true, message: "You must leave a rating"
 =======
+=======
+>>>>>>> parent of 340d744 (styled buttons)
   validates :user, uniqueness: true
   validates :rating, presence: true
 >>>>>>> parent of 340d744 (styled buttons)
