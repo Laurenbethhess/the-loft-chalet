@@ -47,7 +47,10 @@ function Signup({ onLogin }) {
     return (
         <div>
               <Card align='center' sx={{ minWidth: 275 }} style={{backgroundColor: "#B1DFB0"}}>
+              <Typography style={{fontSize: 20, fontFamily: "Courier"}} align='center' variant="p" gutterBottom component="div">
                 Create an account
+              </Typography> 
+                
                 <CardContent align='center'>
                     <Typography >
                       <form onSubmit={handleSubmit}>
@@ -116,7 +119,7 @@ function Signup({ onLogin }) {
                           label="Avatar URL"
                           onChange={(e) => setAvatar_url(e.target.value)}
                           /><br/>
-                        <Button type="submit">{isLoading ? "Loading..." : "Sign Up"}</Button><br/>
+                        <Button variant="outlined" type="submit">{isLoading ? "Loading..." : "Sign Up"}</Button><br/>
                         <div>
                             {errors.map((err) => (
                             <li key={err}>{err}</li>
@@ -131,85 +134,7 @@ function Signup({ onLogin }) {
                     </Typography>
                 </CardContent>
               </Card>
-
-
-
-
-
-        {/* <form onSubmit={handleSubmit}>
-            <h2>Please Sign In</h2>
-            <div>
-              <input 
-                type="text"
-                placeholder="username"
-                id="username"
-                autoComplete="off"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-              />
-            </div>
-            <div>
-              <input 
-                type="password"
-                placeholder="password"
-                id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                autoComplete="current-password"
-              />
-            </div>
-            <div>
-              <input 
-                type="text"
-                placeholder="first name"
-                id="first_name"
-                value={firstname}
-                onChange={(e) => setFirstName(e.target.value)}
-              />
-            </div>
-            <div>
-              <input 
-                type="text"
-                placeholder="last name"
-                id="last_name"
-                value={lastname}
-                onChange={(e) => setLastName(e.target.value)}
-              />
-            </div>
-            <div>
-              <input 
-                type="text"
-                placeholder="email"
-                id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-            <div>
-              <input 
-                type="text"
-                placeholder="avatar_url"
-                id="avatar"
-                value={avatar_url}
-                onChange={(e) => setAvatar_url(e.target.value)}
-              />
-            </div>
-            <div>
-              <button type="submit">
-                  {isLoading ? "Loading..." : "Sign Up"}
-              </button>
-            </div>
-            <div>
-                {errors.map((err) => (
-                  <li key={err}>{err}</li>
-                ))}
-            </div>
-          </form> */}
-
-
         </div>
-
-
     )
 }
 

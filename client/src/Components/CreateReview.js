@@ -7,8 +7,6 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Login from "./Login";
-import { Link } from "react-router-dom";
-
 
 function CreateReview( { user, onAddReview, property, onLogin } ) {
     const [comment, setComment] = useState("")
@@ -52,11 +50,6 @@ function CreateReview( { user, onAddReview, property, onLogin } ) {
           <div className="create_card">
             <Card sx={{ minWidth: 275, bgcolor: '#cfe8fc' }} style={{backgroundColor: "#B1DFB0"}}>
                 <CardContent>
-                    <Typography style={{fontSize: 20, fontFamily: "Courier"}} align='center' variant="p" gutterBottom component="div">
-                        <p>You can only leave one review</p>
-                        <p>To edit a review, go to <Link to="/edit-review">Edit Review</Link></p>
-                    </Typography>       
-
                     <Typography >
                       <form onSubmit={handleSubmit}>
                         <TextField
@@ -76,7 +69,7 @@ function CreateReview( { user, onAddReview, property, onLogin } ) {
                           value={rating}
                           onChange={(e) => setRating(e.target.value)}
                         />
-                        <Button type="submit">Submit</Button>
+                        <Button variant="outlined" type="submit">Submit</Button>
                         <div>
                             {errors.map((err) => (
                             <li key={err}>{err}</li>

@@ -2,9 +2,8 @@ import React, { useState, useEffect } from "react";
 import ReviewsCard from "./ReviewsCard";
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import Calendar from "./TheCalendar"
 
-function Home( { property, reviews, user } ) {
+function Home( { property, reviews } ) {
     const [homePhoto, setHomePhoto] = useState('')
 
     useEffect(() => {
@@ -17,7 +16,7 @@ function Home( { property, reviews, user } ) {
     const renderReviews = reviews.map(review => <ReviewsCard review={review} key={review.id} />)
 
     return (
-        <div  align='center' >
+        <div>
             <div align='center'>
                 <Box sx={{paddingTop: 12, width: '100%', maxWidth: 1200 }}>
                     <Typography style={{fontWeight: "bold", fontSize: 30, fontFamily: "Courier"}} align='center' variant="p" gutterBottom component="div">
@@ -41,17 +40,6 @@ function Home( { property, reviews, user } ) {
                     </Typography>
                 </Box>
             </div>
-            {/* {user?
-                <div  className="home_photo">
-                    <Calendar />
-                </div>
-            : 
-                <div  className="home_photo">
-                    <Calendar />
-                </div>
-            } */}
-            
-            
             <br/>
             {renderReviews}
             <br/>

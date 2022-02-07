@@ -29,15 +29,5 @@
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
 
-# en:
-#   hello: "Hello world"
-
-  en:
-  activerecord:
-    errors:
-      models:
-        comment_rating:
-          attributes:
-            user:
-              blank: "^You can only leave one comment."
-
+en:
+  hello: "Hello world"
