@@ -38,5 +38,6 @@ class CommentRatingsController < ApplicationController
     def update_params
         params.permit(:comment, :rating)
     end
+    
 
 end
