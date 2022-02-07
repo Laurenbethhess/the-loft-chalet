@@ -45,6 +45,9 @@ function Nav( { user, onSetUser, reviews } ) {
                     <Link to="/photos">Photos</Link>
                 </Typography>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={{fontFamily: "Courier"}}>
+                    <Link to="/calendar">Calendar</Link>
+                </Typography>
+                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={{fontFamily: "Courier"}}>
                     <Link to="/leave-a-review">Leave a Review</Link>
                 </Typography>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={{fontFamily: "Courier"}}>

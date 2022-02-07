@@ -10,6 +10,8 @@ import Photos from "./Components/Photos"
 import Amenity from "./Components/Amenity";
 import CreateReview from "./Components/CreateReview";
 import EditReview from "./Components/EditReview";
+import TheCalendar from "./Components/TheCalendar";
+
 
 function App() {
   const [user, setUser] = useState(null);
@@ -79,6 +81,8 @@ function handleDeleteReview(id) {
         <Route path="/leave-a-review" element={<CreateReview onLogin={setUser} onAddReview={handleAddReview} user={user} property={property}/>}/>
         <Route path="/login" element={<Login user={user} onLogin={setUser} />}/>
         <Route path="/edit-review" element={<EditReview onLogin={setUser} onUpdateReview={handleUpdateReview} reviews={reviews} onDeleteReview={handleDeleteReview} user={user}/>}/>
+        <Route path="/calendar" element={<TheCalendar />}/>
+
       </Routes>
 
     </div>
