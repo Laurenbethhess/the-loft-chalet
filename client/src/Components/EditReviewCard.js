@@ -56,7 +56,7 @@ function EditReviewCard( { review, onUpdateReview, onDeleteReview, onSetAverageR
         }
 
     return (
-        <div className="create_card">
+        <div className="edit_card">
         <Card sx={{ minWidth: 275 }} style={{backgroundColor: "#B1DFB0"}}>
             <CardContent align='center'>
                 <Typography >
@@ -72,13 +72,14 @@ function EditReviewCard( { review, onUpdateReview, onDeleteReview, onSetAverageR
                           label="Edit Review"
                           onChange={(e) => setComment(e.target.value)}
                         />
+                        <br/><br/>
                         <Rating
                           required
                           name="simple-controlled"
                           value={rating}
                           onChange={(e) => setRating(e.target.value)}
                         />
-                        <br/>
+                        <br/><br/>
                         <Button variant="outlined" type="submit">Update</Button>
                         <div>
                             {errors.map((err) => (
@@ -87,6 +88,7 @@ function EditReviewCard( { review, onUpdateReview, onDeleteReview, onSetAverageR
                         </div>
                     </form>            
                 </Typography>
+                <br/>
                 <Typography>
                     <Button variant="outlined" onClick={handleDeleteClick}>Delete Review</Button>
                 </Typography>

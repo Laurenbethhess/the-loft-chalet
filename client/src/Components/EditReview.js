@@ -1,6 +1,11 @@
 import React from "react";
 import EditReviewCard from "./EditReviewCard";
 import Login from "./Login";
+import Typography from '@mui/material/Typography';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+
+
 
 function EditReview( {onUpdateReview, reviews, user, onDeleteReview, onLogin, onSetAverageRating, onSetPropertyRating } ) {
     if (!user) return <Login onLogin={onLogin} />
@@ -10,9 +15,21 @@ function EditReview( {onUpdateReview, reviews, user, onDeleteReview, onLogin, on
     const userRenderedReviews = userReviews.map(review => <EditReviewCard review={review} key={review.id} onUpdateReview={onUpdateReview} onDeleteReview={onDeleteReview} onSetAverageRating={onSetAverageRating} onSetPropertyRating={onSetPropertyRating}/>)
 
     return (
-        <div>
+        <div >
+            <div className="create_card">
+                <Card sx={{ minWidth: 275, bgcolor: '#cfe8fc' }} style={{backgroundColor: "#B1DFB0"}}>
+                    <CardContent>
+                        <Typography sx={{ minWidth: 275, bgcolor: '#cfe8fc' }} style={{backgroundColor: "#B1DFB0"}} style={{fontSize: 20, fontFamily: "Courier"}} align='center' variant="p" gutterBottom component="div">
+                        If you've left a review, you can edit it here.
+                        </Typography>       
+                    </CardContent>
+                </Card>
+            </div>
+            <br/>
             {userRenderedReviews}
-        </div>
+      </div>
+
+
     )
 }
 
