@@ -12,8 +12,8 @@ function Nav( { user, onSetUser, reviews, averageRating, property } ) {
     const navigate = useNavigate();
 
     function handleLogoutClick() {
-        // fetch("https://the-loft-chalet.herokuapp.com//logout", { method: "DELETE" }).then((r) => {
-        fetch("http://localhost:3000/logout", { method: "DELETE" }).then((r) => {
+        fetch("https://the-loft-chalet.herokuapp.com//logout", { method: "DELETE" }).then((r) => {
+        // fetch("http://localhost:3000/logout", { method: "DELETE" }).then((r) => {
             if (r.ok) {
                 onSetUser(null);
             }
