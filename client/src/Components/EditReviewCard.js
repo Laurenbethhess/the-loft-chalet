@@ -24,8 +24,8 @@ function EditReviewCard( { review, onUpdateReview, onDeleteReview } ) {
 
     function handleFormSubmit(e) {
         e.preventDefault();
-        fetch(`http://localhost:3000/comment_ratings/${review.id}`, {
-        // fetch(`https://the-loft-chalet.herokuapp.com/comment_ratings/${review.id}`, {
+        // fetch(`http://localhost:3000/comment_ratings/${review.id}`, {
+        fetch(`https://the-loft-chalet.herokuapp.com/comment_ratings/${review.id}`, {
             method: "PATCH",
             headers: {
             "Content-Type": "application/json",
