@@ -11,7 +11,6 @@ function PhotoCard( { photo } ) {
             <div style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
                 <img  className="all_photo" src={photo.photo_url}/>
             </div>
-            
         </div>
     )
 }

@@ -3,7 +3,7 @@ class Amenity < ApplicationRecord
 
   def self.ordered_by_id
     self.order(:name)
-end
+  end 
 
 end
 

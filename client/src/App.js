@@ -19,6 +19,7 @@ function App() {
   const [reservations, setReservations] = useState([]);
   const [property, setProperty] = useState('')
   const [calendar, setCalendar] = useState('');
+  const [averageRating, setAverageRating] = useState('')
 
   useEffect(() => {
     // fetch('http://localhost:3000/photos')
@@ -67,6 +68,7 @@ function App() {
 
 function handleAddReview(newReview) {
   setReviews([...reviews, newReview])
+  setAverageRating(newReview.property.average_rating)
 }
 
 function handleAddReservation(newReservation) {
@@ -82,6 +84,7 @@ function handleUpdateReview(updatedReviewObj) {
     }
   });
   setReviews(updatedReviews)
+  setAverageRating(updatedReviewObj.property.average_rating)
 }
 
 function handleDeleteReview(id) {
@@ -96,7 +99,7 @@ function handleDeleteReservation(id) {
 
   return (
     <div >
-      <Nav user={user} onSetUser={setUser} property={property} reviews={reviews}/>
+      <Nav user={user} onSetUser={setUser} property={property} reviews={reviews} averageRating={averageRating} />
       <Routes >
         <Route path="/" element={<Home property={property} reviews={reviews}/>}/>
         <Route path="/contact" element={<Contact user={user}  />}/>
@@ -104,7 +107,7 @@ function handleDeleteReservation(id) {
         <Route path="/amenities" element={<Amenity />}/>
         <Route path="/leave-a-review" element={<CreateReview onLogin={setUser} onAddReview={handleAddReview} user={user} property={property}/>}/>
         <Route path="/login" element={<Login user={user} onLogin={setUser} />}/>
-        <Route path="/edit-review" element={<EditReview onLogin={setUser} onUpdateReview={handleUpdateReview} reviews={reviews} onDeleteReview={handleDeleteReview} user={user}/>}/>
+        <Route path="/edit-review" element={<EditReview onLogin={setUser} onUpdateReview={handleUpdateReview} reviews={reviews} onDeleteReview={handleDeleteReview} user={user} property={property} onSetProperty={setProperty}/>}/>
         <Route path="/calendar" element={<TheCalendar user={user} onLogin={setUser} reservations={reservations} onAddReservation={handleAddReservation} calendar={calendar} onDeleteReservation={handleDeleteReservation}  />}/>
       </Routes>
     </div>

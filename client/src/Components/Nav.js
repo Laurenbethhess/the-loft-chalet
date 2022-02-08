@@ -8,12 +8,12 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom'
 
-function Nav( { user, onSetUser, reviews } ) {
+function Nav( { user, onSetUser, reviews, averageRating, property } ) {
     const navigate = useNavigate();
 
     function handleLogoutClick() {
-        fetch("https://the-loft-chalet.herokuapp.com//logout", { method: "DELETE" }).then((r) => {
-        // fetch("http://localhost:3000/logout", { method: "DELETE" }).then((r) => {
+        // fetch("https://the-loft-chalet.herokuapp.com//logout", { method: "DELETE" }).then((r) => {
+        fetch("http://localhost:3000/logout", { method: "DELETE" }).then((r) => {
             if (r.ok) {
                 onSetUser(null);
             }
@@ -21,8 +21,8 @@ function Nav( { user, onSetUser, reviews } ) {
         });
     }
 
-    let arry = reviews
-    let lastElement = arry[arry.length - 1];
+    // let arry = reviews
+    // let lastElement = arry[arry.length - 1];
 
     return (
             <Box sx={{ flexGrow: 1 }}>
@@ -57,10 +57,13 @@ function Nav( { user, onSetUser, reviews } ) {
                     <Link to="/contact">Contact</Link>
                 </Typography>
                 <Typography component="div" sx={{ flexGrow: 1 }} style={{fontFamily: "Courier"}}>
-                    {lastElement?
-                        < Rating name="read-only" value={lastElement.property.average_rating} readOnly />
-                    :
+                    {averageRating? (
+                        < Rating name="read-only" value={averageRating} readOnly />
+                    ) : property.average_rating? (
+                        <Rating name="read-only" value={property.average_rating} readOnly />
+                    ) : (
                         <></>
+                    )          
                     }
                 </Typography>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={{fontFamily: "Courier"}}>

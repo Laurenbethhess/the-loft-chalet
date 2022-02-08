@@ -5,16 +5,13 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
+import Rating from '@mui/material/Rating';
 
 function EditReviewCard( { review, onUpdateReview, onDeleteReview } ) {
     const [comment, setComment] = useState(review.comment)
     const [rating, setRating] = useState(review.rating)
     const [errors, setErrors] = useState([]);
     const navigate = useNavigate();
-
-    function handleUpdateReview(updatedReview) {
-        onUpdateReview(updatedReview)
-    }
 
     function handleDeleteClick() {
         fetch(`https://the-loft-chalet.herokuapp.com/comment_ratings/${review.id}`, {
@@ -27,8 +24,8 @@ function EditReviewCard( { review, onUpdateReview, onDeleteReview } ) {
 
     function handleFormSubmit(e) {
         e.preventDefault();
-        // fetch(`http://localhost:3000/comment_ratings/${review.id}`, {
-        fetch(`https://the-loft-chalet.herokuapp.com/comment_ratings/${review.id}`, {
+        fetch(`http://localhost:3000/comment_ratings/${review.id}`, {
+        // fetch(`https://the-loft-chalet.herokuapp.com/comment_ratings/${review.id}`, {
             method: "PATCH",
             headers: {
             "Content-Type": "application/json",
@@ -41,9 +38,7 @@ function EditReviewCard( { review, onUpdateReview, onDeleteReview } ) {
         .then((r) => {
             if (r.ok) {
               r.json().then(updatedReview => {
-                handleUpdateReview(updatedReview)
-                setComment("")
-                setRating("")
+                onUpdateReview(updatedReview)
                 navigate('/');
                 })
             } else {
@@ -68,6 +63,12 @@ function EditReviewCard( { review, onUpdateReview, onDeleteReview } ) {
                           value={comment}
                           label="Edit Review"
                           onChange={(e) => setComment(e.target.value)}
+                        />
+                        <Rating
+                          required
+                          name="simple-controlled"
+                          value={rating}
+                          onChange={(e) => setRating(e.target.value)}
                         />
                         <br/>
                         <Button variant="outlined" type="submit">Update</Button>
