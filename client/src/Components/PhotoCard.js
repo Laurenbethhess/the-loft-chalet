@@ -2,7 +2,6 @@ import React from "react";
 
 function PhotoCard( { photo } ) {
     
-
     return (
         <div>
             <div style={{display:'flex', justifyContent:'center', alignItems:'center', fontFamily: "Courier"}}>

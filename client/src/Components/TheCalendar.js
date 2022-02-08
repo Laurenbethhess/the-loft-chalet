@@ -32,8 +32,7 @@ function TheCalendar( {user, onLogin, reservations, calendar, onAddReservation, 
 
     function handleSubmit(e) {
         e.preventDefault();
-        fetch("https://the-loft-chalet.herokuapp.com/reservations", {
-        // fetch("http://localhost:3000/reservations", {
+        fetch("/reservations", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

@@ -8,21 +8,17 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom'
 
-function Nav( { user, onSetUser, reviews, averageRating, property } ) {
+function Nav( { user, onSetUser, averageRating, propertyRating } ) {
     const navigate = useNavigate();
 
     function handleLogoutClick() {
-        fetch("https://the-loft-chalet.herokuapp.com//logout", { method: "DELETE" }).then((r) => {
-        // fetch("http://localhost:3000/logout", { method: "DELETE" }).then((r) => {
+        fetch("/logout", { method: "DELETE" }).then((r) => {
             if (r.ok) {
                 onSetUser(null);
             }
             navigate('/')
         });
     }
-
-    // let arry = reviews
-    // let lastElement = arry[arry.length - 1];
 
     return (
             <Box sx={{ flexGrow: 1 }}>
@@ -58,9 +54,9 @@ function Nav( { user, onSetUser, reviews, averageRating, property } ) {
                 </Typography>
                 <Typography component="div" sx={{ flexGrow: 1 }} style={{fontFamily: "Courier"}}>
                     {averageRating? (
-                        < Rating name="read-only" value={averageRating} readOnly />
-                    ) : property.average_rating? (
-                        <Rating name="read-only" value={property.average_rating} readOnly />
+                        <Rating name="read-only" value={averageRating} readOnly />
+                    ) : propertyRating? (
+                        <Rating name="read-only" value={propertyRating} readOnly />
                     ) : (
                         <></>
                     )          

@@ -16,8 +16,7 @@ function Amenity( {} ) {
     const [search, setSearch] = useState("")
 
     useEffect(() => {
-        // fetch('http://localhost:3000/amenities')
-        fetch('https://the-loft-chalet.herokuapp.com/amenities')
+        fetch('/amenities')
         .then(r => r.json())
         .then(amenities => setAmenities(amenities))
     }, [])

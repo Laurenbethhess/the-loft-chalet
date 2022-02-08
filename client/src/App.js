@@ -20,32 +20,32 @@ function App() {
   const [property, setProperty] = useState('')
   const [calendar, setCalendar] = useState('');
   const [averageRating, setAverageRating] = useState('')
+  const [propertyRating, setPropertyRating] = useState('')
 
   useEffect(() => {
-    // fetch('http://localhost:3000/photos')
-    fetch('https://the-loft-chalet.herokuapp.com/photos')
+    fetch('/photos')
     .then(r => r.json())
     .then(photos => setPhotos(photos))
   }, [])
 
   useEffect(() => {
-    fetch('https://the-loft-chalet.herokuapp.com/comment_ratings')
-    // fetch('http://localhost:3000/comment_ratings')
+    fetch('/comment_ratings')
     .then(r => r.json())
     .then(reviews => setReviews(reviews))
   }, [])
 
   useEffect(() => {
-    // fetch('http://localhost:3000/properties/1')
-    fetch('https://the-loft-chalet.herokuapp.com/properties/1')
+    fetch('/properties/1')
     .then(r => r.json())
-    .then(property => setProperty(property))
+    .then(property => {
+      setProperty(property)
+      setPropertyRating(property.average_rating)
+    })
   }, [])
 
   useEffect(() => {
   // auto-login
-    fetch("https://the-loft-chalet.herokuapp.com/users/me").then((resp) => {
-    // fetch("http://localhost:3000/properties/users/me").then((resp) => {
+    fetch("/properties/users/me").then((resp) => {
       if (resp.ok) {
         resp.json().then((user) => setUser(user));
       }
@@ -53,15 +53,13 @@ function App() {
   }, []);
 
   useEffect(() => {
-    // fetch('http://localhost:3000/calendars/1')
-    fetch('https://the-loft-chalet.herokuapp.com/calendars/1')
+    fetch('/calendars/1')
     .then(r => r.json())
     .then(calendar => setCalendar(calendar))
   }, [])
 
   useEffect(() => {
-    // fetch('http://localhost:3000/calendars/1')
-    fetch('https://the-loft-chalet.herokuapp.com/calendars/1')
+    fetch('/calendars/1')
     .then(r => r.json())
     .then(calendar => setReservations(calendar.reservations))
   }, [])
@@ -99,7 +97,7 @@ function handleDeleteReservation(id) {
 
   return (
     <div >
-      <Nav user={user} onSetUser={setUser} property={property} reviews={reviews} averageRating={averageRating} />
+      <Nav user={user} onSetUser={setUser} property={property} reviews={reviews} averageRating={averageRating} propertyRating={propertyRating} />
       <Routes >
         <Route path="/" element={<Home property={property} reviews={reviews}/>}/>
         <Route path="/contact" element={<Contact user={user}  />}/>
@@ -107,7 +105,7 @@ function handleDeleteReservation(id) {
         <Route path="/amenities" element={<Amenity />}/>
         <Route path="/leave-a-review" element={<CreateReview onLogin={setUser} onAddReview={handleAddReview} user={user} property={property}/>}/>
         <Route path="/login" element={<Login user={user} onLogin={setUser} />}/>
-        <Route path="/edit-review" element={<EditReview onLogin={setUser} onUpdateReview={handleUpdateReview} reviews={reviews} onDeleteReview={handleDeleteReview} user={user} property={property} onSetProperty={setProperty}/>}/>
+        <Route path="/edit-review" element={<EditReview onLogin={setUser} onUpdateReview={handleUpdateReview} reviews={reviews} onDeleteReview={handleDeleteReview} user={user} property={property} onSetProperty={setProperty} onSetAverageRating={setAverageRating} onSetPropertyRating ={setPropertyRating}/>}/>
         <Route path="/calendar" element={<TheCalendar user={user} onLogin={setUser} reservations={reservations} onAddReservation={handleAddReservation} calendar={calendar} onDeleteReservation={handleDeleteReservation}  />}/>
       </Routes>
     </div>

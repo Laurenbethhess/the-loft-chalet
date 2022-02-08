@@ -19,8 +19,7 @@ function CreateReview( { user, onAddReview, property, onLogin } ) {
 
     function handleSubmit(e) {
         e.preventDefault()
-        fetch("https://the-loft-chalet.herokuapp.com/comment_ratings", {
-        // fetch("http://localhost:3000/comment_ratings", {
+        fetch("/comment_ratings", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

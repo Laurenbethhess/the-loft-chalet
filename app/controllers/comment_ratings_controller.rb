@@ -20,9 +20,10 @@ class CommentRatingsController < ApplicationController
         render json: comment_rating
     end
 
-    def destroy
+    def destroy      
         find_comment_rating.destroy
-        head :no_content
+        render json: CommentRating.average_rating
+        # head :no_content
     end
 
     private

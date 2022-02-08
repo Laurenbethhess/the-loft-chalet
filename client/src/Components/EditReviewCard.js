@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -7,25 +7,33 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Rating from '@mui/material/Rating';
 
-function EditReviewCard( { review, onUpdateReview, onDeleteReview } ) {
+function EditReviewCard( { review, onUpdateReview, onDeleteReview, onSetAverageRating, onSetPropertyRating } ) {
     const [comment, setComment] = useState(review.comment)
     const [rating, setRating] = useState(review.rating)
     const [errors, setErrors] = useState([]);
     const navigate = useNavigate();
 
     function handleDeleteClick() {
-        fetch(`https://the-loft-chalet.herokuapp.com/comment_ratings/${review.id}`, {
-        // fetch(`http://localhost:3000/comment_ratings/${review.id}`, {
+        fetch(`/comment_ratings/${review.id}`, {
           method: "DELETE",
         })
-        onDeleteReview(review.id)
+        .then((r) => {
+          if (r.ok) {
+            r.json().then(data => {
+              onSetAverageRating(data)
+              onSetPropertyRating(data)
+              })
+          } else {
+            r.json().then((err) => setErrors(err.errors));  
+          }
+        })
+        onDeleteReview(review.id);
         navigate('/');
     }
 
     function handleFormSubmit(e) {
         e.preventDefault();
-        // fetch(`http://localhost:3000/comment_ratings/${review.id}`, {
-        fetch(`https://the-loft-chalet.herokuapp.com/comment_ratings/${review.id}`, {
+        fetch(`/comment_ratings/${review.id}`, {
             method: "PATCH",
             headers: {
             "Content-Type": "application/json",

@@ -18,6 +18,20 @@ class CommentRating < ApplicationRecord
 
   def self.ordered_by_id
     self.order(:date_updated)
-  end 
+  end
+
+  def self.average_rating
+    if self.sum(:rating) / self.count(:rating) > 0.0
+      self.sum(:rating) / self.count(:rating)
+    else
+      0.0
+    end
+  end
+  
+  # def self.average_rating
+  #   self.sum(:rating) / self.count(:rating)
+  # end 
+
+
 
 end
