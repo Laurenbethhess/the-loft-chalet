@@ -30,7 +30,6 @@ function TheCalendar( {user, onLogin, reservations, calendar, onAddReservation, 
         setSearch(search);
       }
 
-
     function handleSubmit(e) {
         e.preventDefault();
         fetch("https://the-loft-chalet.herokuapp.com/reservations", {

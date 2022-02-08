@@ -7,8 +7,8 @@ import Button from '@mui/material/Button';
 function DeleteReservationCard({ reservation, onDeleteReservation }) {
 
     function handleDeleteClick() {
-        fetch(`https://the-loft-chalet.herokuapp.com/calendars/1`, {
-        // fetch('http://localhost:3000/calendars/1', {
+        fetch(`https://the-loft-chalet.herokuapp.com/reservations/${reservation.id}`, {
+        // fetch(`http://localhost:3000/reservations/${reservation.id}`, {
           method: "DELETE",
         })
         onDeleteReservation(reservation.id)
