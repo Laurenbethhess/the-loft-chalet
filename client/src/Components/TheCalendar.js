@@ -68,8 +68,6 @@ function TheCalendar( {user, onLogin, reservations, calendar, onAddReservation, 
             </Box>
             {admin?
                 <div className="create_card">
-                                       
-
                     <Card sx={{ minWidth: 275, bgcolor: '#cfe8fc' }} style={{backgroundColor: "#B1DFB0"}}>
                         <CardContent>
                             <Typography >
@@ -103,6 +101,7 @@ function TheCalendar( {user, onLogin, reservations, calendar, onAddReservation, 
                                     <li key={err}>{err}</li>
                                     ))}
                                 </div>
+                                <br/>
                             </form>
                             <form onSubmit={handleSearchSubmit}>
                                 <TextField
