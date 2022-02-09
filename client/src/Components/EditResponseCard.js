@@ -11,6 +11,8 @@ function EditResponseCard( { response, onUpdateResponse, onDeleteResponse } ) {
     const [errors, setErrors] = useState([]);
     const navigate = useNavigate();
 
+//need to update so delete returns an array of the comments so it updates in state, similar to deleting review
+
     function handleDeleteClick() {
         fetch(`/response_to_comments/${response.id}`, {
           method: "DELETE",

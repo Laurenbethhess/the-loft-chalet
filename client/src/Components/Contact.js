@@ -17,20 +17,22 @@ function Contact( {} ) {
                     Please contact Lauren for details.
                 </Typography>
                 <br/>
-                <Card sx={{ minWidth: 275 }} style={{backgroundColor: "#B1DFB0"}}>
-                    <CardContent>
-                        <Typography style={{fontFamily: "Courier"}} align='center' variant="h5" gutterBottom component="div">
-                            Email:  Mavis@gmail.com
-                        </Typography>
-                        <Typography style={{fontFamily: "Courier"}} align='center' variant="h5" gutterBottom component="div">
-                            Phone:  xxx-xxx-xxxx
-                        </Typography>
-                    </CardContent>
-                </Card>
+                <div align='center'>
+                <Box sx={{width: '50%', maxWidth: 1200 }}>
+                    <Card sx={{ minWidth: 275 }} style={{backgroundColor: "#B1DFB0"}}>
+                        <CardContent>
+                            <Typography style={{fontFamily: "Courier"}} align='center' variant="h5" gutterBottom component="div">
+                                Email:  Mavis@gmail.com
+                            </Typography>
+                            <Typography style={{fontFamily: "Courier"}} align='center' variant="h5" gutterBottom component="div">
+                                Phone:  xxx-xxx-xxxx
+                            </Typography>
+                        </CardContent>
+                    </Card>
+                </Box>
+                </div>
+
                 <br/>
-                <Typography style={{fontFamily: "Courier"}} align='center' variant="h4" gutterBottom component="div">
-                    You can view a calendar of available dates <a href="https://calendar.google.com/calendar/u/0?cid=Nm1hZTNmbnZudXR1Ym9jdTI5dHAyZDdkczBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ" target="_blank">here</a>.
-                </Typography>
             </Box>
         </div>
     )

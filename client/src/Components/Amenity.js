@@ -9,6 +9,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import Box from '@mui/material/Box';
 
 function Amenity( {} ) {
     const [amenities, setAmenities] = useState([])
@@ -40,11 +41,15 @@ function Amenity( {} ) {
     };
 
     return (
-        <div align='center' className="amenities">
-            <Typography style={{fontSize: 30, fontFamily: "Courier"}} align='center' variant="p" gutterBottom component="div">
-                Amenities
-            </Typography>
-
+        <div>
+            <div align='center'>
+                <Box sx={{paddingTop: 12, width: '100%', maxWidth: 1200 }}>
+                    <Typography style={{fontWeight: "bold", fontSize: 30, fontFamily: "Courier"}} align='center' variant="p" gutterBottom component="div">
+                        Amenities
+                    </Typography>
+                </Box>
+            </div>
+            <div className="create_card">
             <Card sx={{ minWidth: 275, bgcolor: '#cfe8fc' }} style={{backgroundColor: "#B1DFB0"}}>
                 <CardContent>
                 <FormControl sx={{ minWidth: 275, bgcolor: '#cfe8fc' }}>
@@ -54,7 +59,7 @@ function Amenity( {} ) {
                                 label="Filter"
                                 onChange={onFilterChange}
                             >
-                                <MenuItem value="">No Filter</MenuItem>
+                                <MenuItem value={renderSearchedAmenities}>No Filter</MenuItem>
                                 <MenuItem value="Bathrooms">Bathrooms</MenuItem>
                                 <MenuItem value="Bedroom">Bedroom</MenuItem>
                                 <MenuItem value="Dining">Dining</MenuItem>
@@ -87,6 +92,8 @@ function Amenity( {} ) {
                     </Typography>
                 </CardContent>
             </Card>
+            </div>
+            <br/>
             {renderFilteredAmenities}
             {renderSearchedAmenities}
         </div>

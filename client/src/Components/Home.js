@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import CreateReview from "./CreateReview"
 
+
 function Home( { property, reviews, onLogin, user, responses, onAddResponse, onAddReview } ) {
     const [homePhoto, setHomePhoto] = useState('')
 
@@ -39,6 +40,11 @@ function Home( { property, reviews, onLogin, user, responses, onAddResponse, onA
                     {property.description}
                     </Typography>
                 </Box>
+            </div>
+            <div>
+                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={{fontFamily: "Courier"}}>
+                   
+                </Typography>
             </div>
             <CreateReview onAddReview={onAddReview} property={property} onLogin={onLogin} user={user} />
             <br/>

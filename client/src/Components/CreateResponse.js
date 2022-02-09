@@ -12,7 +12,7 @@ function CreateResponse( { user, onAddResponse, review, onLogin } ) {
     const [errors, setErrors] = useState([]);
     const [comment_rating_id, setCommentRatingId] = useState(review.id)
 
-    if (!user) return <Link to="/login">Please Login to Respond to a Review</Link>
+    if (!user) return <Link style={{fontFamily: "Courier"}} className="create_response" to="/login">Please Login to Respond to a Review</Link>
 
     function handleSubmit(e) {
         e.preventDefault()

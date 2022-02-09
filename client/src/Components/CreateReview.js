@@ -6,7 +6,8 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-import Login from "./Login";
+import { Link } from "react-router-dom";
+
 
 function CreateReview( { user, onAddReview, property, onLogin } ) {
     const [comment, setComment] = useState("")
@@ -15,7 +16,7 @@ function CreateReview( { user, onAddReview, property, onLogin } ) {
     const navigate = useNavigate();
     const [property_id, setPropertyId] = useState(property.id)
 
-    if (!user) return <Login onLogin={onLogin} />
+    if (!user) return  <Link className="create_card" style={{paddingTop: 25, fontWeight: "bold", fontSize: 20, fontFamily: "Courier"}} to="/login">Login here to leave a review!</Link>
 
     function handleSubmit(e) {
         e.preventDefault()
