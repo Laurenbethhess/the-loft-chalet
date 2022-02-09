@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :response_to_comments
   resources :reservations, only: [:index, :create, :show, :destroy]
   resources :calendars, only: [:show, :index]
   resources :comment_ratings

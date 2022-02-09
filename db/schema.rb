@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_07_190341) do
+ActiveRecord::Schema.define(version: 2022_02_09_140222) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,16 @@ ActiveRecord::Schema.define(version: 2022_02_07_190341) do
     t.index ["calendar_id"], name: "index_reservations_on_calendar_id"
   end
 
+  create_table "response_to_comments", force: :cascade do |t|
+    t.bigint "comment_rating_id", null: false
+    t.bigint "user_id", null: false
+    t.string "comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["comment_rating_id"], name: "index_response_to_comments_on_comment_rating_id"
+    t.index ["user_id"], name: "index_response_to_comments_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "first_name"
@@ -92,4 +102,6 @@ ActiveRecord::Schema.define(version: 2022_02_07_190341) do
   add_foreign_key "comment_ratings", "users"
   add_foreign_key "photos", "properties"
   add_foreign_key "reservations", "calendars"
+  add_foreign_key "response_to_comments", "comment_ratings"
+  add_foreign_key "response_to_comments", "users"
 end

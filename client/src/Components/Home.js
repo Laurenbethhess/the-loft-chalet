@@ -3,7 +3,7 @@ import ReviewsCard from "./ReviewsCard";
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
-function Home( { property, reviews } ) {
+function Home( { property, reviews, onLogin, user={user} } ) {
     const [homePhoto, setHomePhoto] = useState('')
 
     useEffect(() => {
@@ -12,7 +12,7 @@ function Home( { property, reviews } ) {
     .then(homePhoto => setHomePhoto(homePhoto))
     }, [])
 
-    const renderReviews = reviews.map(review => <ReviewsCard review={review} key={review.id} />)
+    const renderReviews = reviews.map(review => <ReviewsCard review={review} key={review.id} onLogin={onLogin} user={user} />)
 
     return (
         <div>

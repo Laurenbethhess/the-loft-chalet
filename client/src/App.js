@@ -99,7 +99,7 @@ function handleDeleteReservation(id) {
     <div >
       <Nav user={user} onSetUser={setUser} property={property} reviews={reviews} averageRating={averageRating} propertyRating={propertyRating} />
       <Routes >
-        <Route path="/" element={<Home property={property} reviews={reviews}/>}/>
+        <Route path="/" element={<Home user={user} property={property} reviews={reviews} onLogin={setUser} />}/>
         <Route path="/contact" element={<Contact user={user}  />}/>
         <Route path="/photos" element={<Photos user={user} photos={photos} />}/>
         <Route path="/amenities" element={<Amenity />}/>

@@ -55,6 +55,12 @@
   align-items: center;
 }
 
+.create_response {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}
+
 .amenities {
   font-size: 20px; 
   font-family: Courier; 
