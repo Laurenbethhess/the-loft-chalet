@@ -5,6 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
+import { useNavigate } from 'react-router-dom'
 
 function Login({ onLogin, user }) {
   const [username, setUsername] = useState("");
@@ -12,6 +13,7 @@ function Login({ onLogin, user }) {
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [showLogin, setShowLogin] = useState(true);
+  const navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -27,6 +29,7 @@ function Login({ onLogin, user }) {
       if (r.ok) {
         r.json().then((user) => {
           onLogin(user)
+          navigate('/')
         })
       } else {
         r.json().then((err) => setErrors(err.errors));
@@ -35,7 +38,7 @@ function Login({ onLogin, user }) {
   }
 
   return (
-    <div className="create_card">
+    <div className="login">
     {showLogin ? (
       <div>
         <Card align='center' sx={{paddingTop: 2, minWidth: 600 }} style={{backgroundColor: "#B1DFB0"}}>

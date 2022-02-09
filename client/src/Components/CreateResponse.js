@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Rating from '@mui/material/Rating';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
@@ -8,13 +7,12 @@ import TextField from '@mui/material/TextField';
 import Login from "./Login";
 import { Link } from "react-router-dom";
 
-
 function CreateResponse( { user, onAddResponse, review, onLogin } ) {
     const [comment, setComment] = useState("")
     const [errors, setErrors] = useState([]);
     const [comment_rating_id, setCommentRatingId] = useState(review.id)
 
-    if (!user) return <Link to="/login">Please Login to Response to a Review</Link>
+    if (!user) return <Link to="/login">Please Login to Respond to a Review</Link>
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -43,9 +41,9 @@ function CreateResponse( { user, onAddResponse, review, onLogin } ) {
   
     return (
           <div className="create_response">
-            <Card sx={{ minWidth: 275, bgcolor: '#cfe8fc' }} style={{backgroundColor: "#B1DFB0"}}>
+            <Card style={{backgroundColor: "#88D1D1"}}>
                 <CardContent>
-                    <Typography style={{fontSize: 20, fontFamily: "Courier"}} align='center' variant="p" gutterBottom component="div">
+                    <Typography style={{fontSize: 15, fontFamily: "Courier"}} align='center' variant="p" gutterBottom component="div">
                       Respond to this review:
                     </Typography>       
                     <Typography >
@@ -73,7 +71,6 @@ function CreateResponse( { user, onAddResponse, review, onLogin } ) {
             </Card>
           </div>
     )
-    
 }
 
 export default CreateResponse

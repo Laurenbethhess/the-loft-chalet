@@ -6,8 +6,7 @@ import Typography from '@mui/material/Typography';
 import { deepPurple } from '@mui/material/colors';
 import { Link } from "react-router-dom";
 
-
-function ResponseCard( { response, review} ) {
+function ResponseCard( { response } ) {
     
     return (
         <div>
@@ -23,10 +22,11 @@ function ResponseCard( { response, review} ) {
                         <Typography sx={{ mb: 1.5 }} color="black" style={{fontFamily: "Courier"}}>
                             {response.date_updated}
                         </Typography>
-                        <Typography variant="body2" style={{fontFamily: "Courier"}}>
-                            {response.comment}
+                        <Typography variant="p" style={{fontFamily: "Courier", fontSize: 15}}>
+                            <>"</>{response.comment}<>"</>
                         </Typography>
-                        <Link to="/edit-response">Edit Response Here</Link>
+                        <br/><br/>
+                        <Link style={{fontFamily: "Courier"}} to="/edit-response">Edit Response Here</Link>
                     </CardContent>
                 </Card>
             </div>

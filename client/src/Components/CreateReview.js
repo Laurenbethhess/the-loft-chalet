@@ -50,7 +50,7 @@ function CreateReview( { user, onAddReview, property, onLogin } ) {
             <Card sx={{ minWidth: 275, bgcolor: '#cfe8fc' }} style={{backgroundColor: "#B1DFB0"}}>
                 <CardContent>
                     <Typography style={{fontSize: 20, fontFamily: "Courier"}} align='center' variant="p" gutterBottom component="div">
-                      You can leave your review here.
+                      Leave a Review!
                     </Typography>       
                     <Typography >
                       <form onSubmit={handleSubmit}>

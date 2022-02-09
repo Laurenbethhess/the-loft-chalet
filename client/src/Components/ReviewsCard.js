@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import { deepPurple } from '@mui/material/colors';
 import CreateResponse from "./CreateResponse";
 import ResponseCard from "./ResponseCard";
-
+import { Link } from "react-router-dom";
 
 function ReviewsCard( { review, onLogin, user, responses, onAddResponse } ) {
     const review_id = review.id
@@ -26,16 +26,18 @@ function ReviewsCard( { review, onLogin, user, responses, onAddResponse } ) {
                     <Typography variant="h5" component="div" style={{fontFamily: "Courier"}}>
                         {review.user.first_name}
                     </Typography>
-                    <Typography sx={{ mb: 1.5 }} color="black" style={{fontFamily: "Courier"}}>
-                        {review.date_updated}
-                    </Typography>
-                    <Typography variant="body2" style={{fontFamily: "Courier"}}>
-                        {review.comment}
-                    </Typography>
-                    <br/>
                     <Typography >
                         <Rating name="read-only" value={review.rating} readOnly />
                     </Typography>
+                    <Typography sx={{ mb: 1.5 }} color="black" style={{fontFamily: "Courier"}}>
+                        {review.date_updated}
+                    </Typography>
+                    <Typography variant="p" style={{fontFamily: "Courier", fontSize: 20}}>
+                        <>"</>{review.comment}<>"</>
+                    </Typography>
+                    <br/><br/>
+                    <Link style={{fontFamily: "Courier"}} to="/edit-review">Edit Review Here</Link>
+                    <br/><br/>
                     <Typography >
                         {renderResponses}
                     </Typography>

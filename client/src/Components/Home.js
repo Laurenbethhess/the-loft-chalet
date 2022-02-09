@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import ReviewsCard from "./ReviewsCard";
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import CreateReview from "./CreateReview"
 
-function Home( { property, reviews, onLogin, user, responses, onAddResponse } ) {
+function Home( { property, reviews, onLogin, user, responses, onAddResponse, onAddReview } ) {
     const [homePhoto, setHomePhoto] = useState('')
 
     useEffect(() => {
@@ -39,6 +40,7 @@ function Home( { property, reviews, onLogin, user, responses, onAddResponse } ) 
                     </Typography>
                 </Box>
             </div>
+            <CreateReview onAddReview={onAddReview} property={property} onLogin={onLogin} user={user} />
             <br/>
             {renderReviews}
             <br/>

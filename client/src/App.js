@@ -126,9 +126,9 @@ function handleDeleteResponse(id) {
 
   return (
     <div >
-      <Nav user={user} onSetUser={setUser} property={property} reviews={reviews} averageRating={averageRating} propertyRating={propertyRating} />
+      <Nav user={user} onSetUser={setUser} property={property} reviews={reviews} averageRating={averageRating} propertyRating={propertyRating} onAddReview={handleAddReview} />
       <Routes >
-        <Route path="/" element={<Home user={user} property={property} reviews={reviews} onLogin={setUser} responses={responses} onAddResponse={handleAddResponse}/>}/>
+        <Route path="/" element={<Home user={user} property={property} reviews={reviews} onLogin={setUser} responses={responses} onAddResponse={handleAddResponse} onAddReview={handleAddReview}/>}/>
         <Route path="/contact" element={<Contact user={user}  />}/>
         <Route path="/photos" element={<Photos user={user} photos={photos} />}/>
         <Route path="/amenities" element={<Amenity />}/>

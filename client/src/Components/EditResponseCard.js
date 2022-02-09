@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import { useNavigate } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -44,37 +44,40 @@ function EditResponseCard( { response, onUpdateResponse, onDeleteResponse } ) {
         }
 
     return (
+      <div>
         <div className="edit_card">
-        <Card sx={{ minWidth: 275 }} style={{backgroundColor: "#B1DFB0"}}>
-            <CardContent align='center'>
-                <Typography >
-                    <form onSubmit={handleFormSubmit}>
-                        <TextField
-                          sx={{bgcolor: '#cfe8fc' }}
-                          multiline
-                          variant="filled"
-                          type="text"
-                          name="comment"
-                          autoComplete="off"
-                          value={responseComment}
-                          label="Edit Review"
-                          onChange={(e) => setResponseComment(e.target.value)}
-                        />
-                        <br/><br/>
-                        <Button variant="outlined" type="submit">Update</Button>
-                        <div>
-                            {errors.map((err) => (
-                            <li key={err}>{err}</li>
-                            ))}
-                        </div>
-                    </form>            
-                </Typography>
-                <br/>
-                <Typography>
-                    <Button variant="outlined" onClick={handleDeleteClick}>Delete Response</Button>
-                </Typography>
-            </CardContent>
-        </Card>
+          <Card sx={{ minWidth: 275 }} style={{backgroundColor: "#B1DFB0"}}>
+              <CardContent align='center'>
+                  <Typography >
+                      <form onSubmit={handleFormSubmit}>
+                          <TextField
+                            sx={{bgcolor: '#cfe8fc' }}
+                            multiline
+                            variant="filled"
+                            type="text"
+                            name="comment"
+                            autoComplete="off"
+                            value={responseComment}
+                            label="Edit Review"
+                            onChange={(e) => setResponseComment(e.target.value)}
+                          />
+                          <br/><br/>
+                          <Button variant="outlined" type="submit">Update</Button>
+                          <div>
+                              {errors.map((err) => (
+                              <li key={err}>{err}</li>
+                              ))}
+                          </div>
+                      </form>            
+                  </Typography>
+                  <br/>
+                  <Typography>
+                      <Button variant="outlined" onClick={handleDeleteClick}>Delete Response</Button>
+                  </Typography>
+              </CardContent>
+          </Card>
+        </div>
+        <br/>
       </div>
     )
 }

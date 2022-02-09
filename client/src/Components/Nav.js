@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import Rating from '@mui/material/Rating';
 import AppBar from '@mui/material/AppBar';
@@ -42,12 +42,6 @@ function Nav( { user, onSetUser, averageRating, propertyRating } ) {
                 </Typography>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={{fontFamily: "Courier"}}>
                     <Link to="/calendar">Calendar</Link>
-                </Typography>
-                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={{fontFamily: "Courier"}}>
-                    <Link to="/leave-a-review">Leave a Review</Link>
-                </Typography>
-                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={{fontFamily: "Courier"}}>
-                    <Link to="/edit-review">Edit Review</Link>
                 </Typography>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={{fontFamily: "Courier"}}>
                     <Link to="/contact">Contact</Link>
