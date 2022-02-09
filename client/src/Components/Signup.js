@@ -11,7 +11,7 @@ function Signup({ onLogin }) {
   const [firstname, setFirstName] = useState("");
   const [lastname, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [avatar_url, setAvatar_url] = useState("");
+  // const [avatar_url, setAvatar_url] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState([]);
 
@@ -31,7 +31,7 @@ function Signup({ onLogin }) {
         first_name: firstname,
         last_name: lastname,
         email: email,
-        avatar_url: avatar_url
+        // avatar_url: avatar_url
       }),
     }).then((r) => {
       setIsLoading(false);
@@ -108,7 +108,7 @@ function Signup({ onLogin }) {
                           label="Email"
                           onChange={(e) => setEmail(e.target.value)}
                           /><br/>
-                        <TextField
+                        {/* <TextField
                           sx={{bgcolor: '#cfe8fc' }}
                           variant="filled"
                           type="text"
@@ -117,7 +117,7 @@ function Signup({ onLogin }) {
                           value={avatar_url}
                           label="Avatar URL"
                           onChange={(e) => setAvatar_url(e.target.value)}
-                          /><br/>
+                          /><br/> */}
                         <Button variant="outlined" type="submit">{isLoading ? "Loading..." : "Sign Up"}</Button><br/>
                         <div>
                             {errors.map((err) => (

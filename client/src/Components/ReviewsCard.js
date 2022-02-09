@@ -4,6 +4,7 @@ import Avatar from '@mui/material/Avatar';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
+import { deepPurple } from '@mui/material/colors';
 
 function ReviewsCard( { review } ) {
 
@@ -13,7 +14,7 @@ function ReviewsCard( { review } ) {
             <Card sx={{ minWidth: 275 }} style={{backgroundColor: "#B1DFB0"}}>
                 <CardContent>
                     <Typography >
-                        <Avatar alt={review.user.first_name} src={review.user.avatar_url} />
+                        <Avatar sx={{ bgcolor: deepPurple[500] }} alt={review.user.first_name} src={review.user.first_name} />
                     </Typography>
                     <Typography variant="h5" component="div" style={{fontFamily: "Courier"}}>
                         {review.user.first_name}
