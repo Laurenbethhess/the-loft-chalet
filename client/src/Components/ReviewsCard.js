@@ -8,22 +8,13 @@ import { deepPurple } from '@mui/material/colors';
 import CreateResponse from "./CreateResponse";
 import ResponseCard from "./ResponseCard";
 
-function ReviewsCard( { review, onLogin, user } ) {
-    const [responses, setResponses] = useState([])
 
-    function handleAddResponse(newResponse) {
-        setResponses([...responses, newResponse])
-      }
-      
-    useEffect(() => {
-        fetch(`/comment_ratings/${review.id}`)
-        .then(r => r.json())
-        .then(comment_ratings => setResponses(comment_ratings.response_to_comments))
-      }, [])
+function ReviewsCard( { review, onLogin, user, responses, onAddResponse } ) {
+    const review_id = review.id
+    const reviewResponses = responses.filter(response => response.comment_rating.id === review_id)
 
-    const renderResponses = responses.map(response => <ResponseCard user={user} response={response} key={response.id} review={review} />)
+    const renderResponses = reviewResponses.map(response => <ResponseCard user={user} response={response} key={response.id}/>)
 
-    
     return (
         <div>
         <div className="card">
@@ -49,16 +40,13 @@ function ReviewsCard( { review, onLogin, user } ) {
                         {renderResponses}
                     </Typography>
                     <Typography >
-                    <CreateResponse onLogin={onLogin} user={user} onAddResponse={handleAddResponse} review={review} />
+                        <CreateResponse onLogin={onLogin} user={user} onAddResponse={onAddResponse} review={review} />
                     </Typography>
                 </CardContent>
             </Card>
         </div>
         <div>
-        <br/>
-            
-            <br/>
-            
+        <br/><br/>
         </div>
         </div>
     )

@@ -11,6 +11,7 @@ import Amenity from "./Components/Amenity";
 import CreateReview from "./Components/CreateReview";
 import EditReview from "./Components/EditReview";
 import TheCalendar from "./Components/TheCalendar";
+import EditResponse from "./Components/EditResponse";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -21,6 +22,8 @@ function App() {
   const [calendar, setCalendar] = useState('');
   const [averageRating, setAverageRating] = useState('')
   const [propertyRating, setPropertyRating] = useState('')
+  const [responses, setResponses] = useState([]);
+
 
   useEffect(() => {
     fetch('/photos')
@@ -64,6 +67,12 @@ function App() {
     .then(calendar => setReservations(calendar.reservations))
   }, [])
 
+  useEffect(() => {
+    fetch('/response_to_comments')
+    .then(r => r.json())
+    .then(responses => setResponses(responses))
+  }, [])
+
 function handleAddReview(newReview) {
   setReviews([...reviews, newReview])
   setAverageRating(newReview.property.average_rating)
@@ -71,6 +80,10 @@ function handleAddReview(newReview) {
 
 function handleAddReservation(newReservation) {
   setReservations([...reservations, newReservation])
+}
+
+function handleAddResponse(newResponse) {
+  setResponses([...responses, newResponse])
 }
 
 function handleUpdateReview(updatedReviewObj) {
@@ -85,6 +98,17 @@ function handleUpdateReview(updatedReviewObj) {
   setAverageRating(updatedReviewObj.property.average_rating)
 }
 
+function handleUpdateResponse(updatedResponseObj) {
+  const updatedResponses = responses.map(response => {
+    if (response.id === updatedResponseObj.id) {
+      return updatedResponseObj;
+    } else {
+      return response;
+    }
+  });
+  setResponses(updatedResponses)
+}
+
 function handleDeleteReview(id) {
   const finalReviews = reviews.filter(review => review.id !== id)
   setReviews(finalReviews)
@@ -95,11 +119,16 @@ function handleDeleteReservation(id) {
   setReservations(finalReservations)
 }
 
+function handleDeleteResponse(id) {
+  const finalResponses = responses.filter(response => response.id !== id)
+  setResponses(finalResponses)
+}
+
   return (
     <div >
       <Nav user={user} onSetUser={setUser} property={property} reviews={reviews} averageRating={averageRating} propertyRating={propertyRating} />
       <Routes >
-        <Route path="/" element={<Home user={user} property={property} reviews={reviews} onLogin={setUser} />}/>
+        <Route path="/" element={<Home user={user} property={property} reviews={reviews} onLogin={setUser} responses={responses} onAddResponse={handleAddResponse}/>}/>
         <Route path="/contact" element={<Contact user={user}  />}/>
         <Route path="/photos" element={<Photos user={user} photos={photos} />}/>
         <Route path="/amenities" element={<Amenity />}/>
@@ -107,6 +136,7 @@ function handleDeleteReservation(id) {
         <Route path="/login" element={<Login user={user} onLogin={setUser} />}/>
         <Route path="/edit-review" element={<EditReview onLogin={setUser} onUpdateReview={handleUpdateReview} reviews={reviews} onDeleteReview={handleDeleteReview} user={user} property={property} onSetProperty={setProperty} onSetAverageRating={setAverageRating} onSetPropertyRating ={setPropertyRating}/>}/>
         <Route path="/calendar" element={<TheCalendar user={user} onLogin={setUser} reservations={reservations} onAddReservation={handleAddReservation} calendar={calendar} onDeleteReservation={handleDeleteReservation}  />}/>
+        <Route path="/edit-response" element={<EditResponse user={user} onLogin={setUser} responses={responses} onUpdateResponse={handleUpdateResponse} onDeleteResponse={handleDeleteResponse}  />}/>
       </Routes>
     </div>
   );

@@ -16,7 +16,6 @@ function CreateResponse( { user, onAddResponse, review, onLogin } ) {
 
     if (!user) return <Link to="/login">Please Login to Response to a Review</Link>
 
-
     function handleSubmit(e) {
         e.preventDefault()
         fetch("/response_to_comments", {
