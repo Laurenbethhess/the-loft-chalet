@@ -22,12 +22,12 @@ class CommentRatingsController < ApplicationController
 
     def destroy      
         find_comment_rating.destroy
-        # render json: CommentRating.average_rating
+        render json: CommentRating.average_rating
         # render json: CommentRating.responses
-        render json: {
-            "rating": rating,
-            "responses": responses
-        }
+        # render json: {
+        #     "rating": rating,
+        #     "responses": responses
+        # }
         # head :no_content
     end
 
@@ -36,13 +36,13 @@ class CommentRatingsController < ApplicationController
         CommentRating.find(params[:id])
     end
 
-    def rating
-        CommentRating.average_rating
-    end
+    # def rating
+    #     CommentRating.average_rating
+    # end
 
-    def responses
-        CommentRating.responses
-    end
+    # def responses
+    #     CommentRating.responses
+    # end
 
     def comment_rating_params
         params.permit(:property_id, :user_id, :comment, :rating)

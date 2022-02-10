@@ -8,8 +8,7 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import { Link } from "react-router-dom";
 
-
-function CreateReview( { user, onAddReview, property, onLogin } ) {
+function CreateReview( { user, onAddReview, property } ) {
     const [comment, setComment] = useState("")
     const [rating, setRating] = useState("")
     const [errors, setErrors] = useState([]);

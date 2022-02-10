@@ -4,6 +4,8 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
+import { useNavigate } from 'react-router-dom'
+
 
 function Signup({ onLogin }) {
   const [username, setUsername] = useState("");
@@ -14,6 +16,8 @@ function Signup({ onLogin }) {
   // const [avatar_url, setAvatar_url] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState([]);
+  const navigate = useNavigate();
+
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -37,6 +41,7 @@ function Signup({ onLogin }) {
       setIsLoading(false);
       if (r.ok) {
         r.json().then((user) => onLogin(user));
+        navigate('/')
       } else {
         r.json().then((err) => setErrors(err.errors));
       }

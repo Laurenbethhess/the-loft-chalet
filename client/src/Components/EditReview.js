@@ -5,8 +5,6 @@ import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 
-
-
 function EditReview( {onUpdateReview, reviews, user, onDeleteReview, onLogin, onSetAverageRating, onSetPropertyRating, onSetResponses, onDeleteResponse } ) {
     if (!user) return <Login onLogin={onLogin} />
 
@@ -28,8 +26,6 @@ function EditReview( {onUpdateReview, reviews, user, onDeleteReview, onLogin, on
             <br/>
             {userRenderedReviews}
       </div>
-
-
     )
 }
 

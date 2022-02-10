@@ -5,22 +5,18 @@ import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 
-// function EditResponse( { user, onLogin, responses, onUpdateResponse, onDeleteResponse } ) {
 function EditResponse( { user, onLogin, onUpdateResponse, onDeleteResponse } ) {
-
     const [responses, setResponses] = useState([]);
 
     useEffect(() => {
         fetch('/response_to_comments')
         .then(r => r.json())
         .then(responses => setResponses(responses))
-      }, [])
-    
+    }, [])
 
     if (!user) return <Login onLogin={onLogin} />
 
-    const user_id = user.id
-    const userResponses = responses.filter(response => response.user_id === user_id)
+    const userResponses = responses.filter(response => response.user_id === user.id)
     const userRenderedResponses = userResponses.map(response => <EditResponseCard response={response} key={response.id} onUpdateResponse={onUpdateResponse} onDeleteResponse={onDeleteResponse} />)
 
     return (

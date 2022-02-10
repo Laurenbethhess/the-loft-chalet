@@ -7,7 +7,7 @@ import TextField from '@mui/material/TextField';
 import Login from "./Login";
 import { Link } from "react-router-dom";
 
-function CreateResponse( { user, onAddResponse, review, onLogin } ) {
+function CreateResponse( { user, onAddResponse, review } ) {
     const [comment, setComment] = useState("")
     const [errors, setErrors] = useState([]);
     const [comment_rating_id, setCommentRatingId] = useState(review.id)

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Rating from '@mui/material/Rating';
 
-function EditReviewCard( { review, onUpdateReview, onDeleteReview, onSetAverageRating, onSetPropertyRating, onSetResponses, onDeleteResponse } ) {
+function EditReviewCard( { review, onUpdateReview, onDeleteReview, onSetAverageRating, onSetPropertyRating, onDeleteResponse } ) {
     const [comment, setComment] = useState(review.comment)
     const [rating, setRating] = useState(review.rating)
     const [errors, setErrors] = useState([]);
@@ -20,18 +20,14 @@ function EditReviewCard( { review, onUpdateReview, onDeleteReview, onSetAverageR
         .then((r) => {
           if (r.ok) {
             r.json().then(data => {
-              onSetAverageRating(data.rating)
-              onSetPropertyRating(data.rating)
-              // onSetResponses(data.responses)
-              console.log(data.rating)
-              console.log(data.responses)
+              onSetAverageRating(data)
+              onSetPropertyRating(data)
               })
           } else {
             r.json().then((err) => setErrors(err.errors));  
           }
         })
         onDeleteReview(review.id);
-        onDeleteResponse(review.response_to_comments.id);
         navigate('/');
     }
 
