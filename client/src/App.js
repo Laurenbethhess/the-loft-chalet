@@ -134,7 +134,7 @@ function handleDeleteResponse(id) {
         <Route path="/amenities" element={<Amenity />}/>
         <Route path="/leave-a-review" element={<CreateReview onLogin={setUser} onAddReview={handleAddReview} user={user} property={property}/>}/>
         <Route path="/login" element={<Login user={user} onLogin={setUser} />}/>
-        <Route path="/edit-review" element={<EditReview onLogin={setUser} onUpdateReview={handleUpdateReview} reviews={reviews} onDeleteReview={handleDeleteReview} user={user} property={property} onSetProperty={setProperty} onSetAverageRating={setAverageRating} onSetPropertyRating ={setPropertyRating}/>}/>
+        <Route path="/edit-review" element={<EditReview onLogin={setUser} onUpdateReview={handleUpdateReview} reviews={reviews} onDeleteReview={handleDeleteReview} onDeleteResponse={handleDeleteResponse} user={user} property={property} onSetProperty={setProperty} onSetAverageRating={setAverageRating} onSetPropertyRating ={setPropertyRating} onSetResponses={setResponses}/>}/>
         <Route path="/calendar" element={<TheCalendar user={user} onLogin={setUser} reservations={reservations} onAddReservation={handleAddReservation} calendar={calendar} onDeleteReservation={handleDeleteReservation}  />}/>
         <Route path="/edit-response" element={<EditResponse user={user} onLogin={setUser} responses={responses} onUpdateResponse={handleUpdateResponse} onDeleteResponse={handleDeleteResponse}  />}/>
       </Routes>

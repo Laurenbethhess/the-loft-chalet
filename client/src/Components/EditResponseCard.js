@@ -35,8 +35,8 @@ function EditResponseCard( { response, onUpdateResponse, onDeleteResponse } ) {
         .then((r) => {
             if (r.ok) {
               r.json()
-              .then(updatedRespnse => {
-                onUpdateResponse(updatedRespnse)
+              .then(updatedResponse => {
+                onUpdateResponse(updatedResponse)
                 navigate('/');
                 })
             } else {

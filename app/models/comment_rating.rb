@@ -31,8 +31,10 @@ class CommentRating < ApplicationRecord
   
   def self.average_rating
     self.sum(:rating) / self.count(:rating)
-  end 
+  end
 
-
+  def self.responses
+    self.all.map {|review| review.response_to_comments}
+  end
 
 end

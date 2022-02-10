@@ -10,10 +10,13 @@ import ResponseCard from "./ResponseCard";
 import { Link } from "react-router-dom";
 
 function ReviewsCard( { review, onLogin, user, responses, onAddResponse } ) {
+
     const review_id = review.id
-    const reviewResponses = responses.filter(response => response.comment_rating.id === review_id)
+    // const reviewResponses = responses.filter(response => response.comment_rating.id === review_id)
+    const reviewResponses = responses.filter(response => response.comment_rating_id === review.id)
 
     const renderResponses = reviewResponses.map(response => <ResponseCard user={user} response={response} key={response.id}/>)
+    console.log(responses)
 
     return (
         <div>

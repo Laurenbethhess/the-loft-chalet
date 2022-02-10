@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 
 function ResponseCard( { response } ) {
     
+    
     return (
         <div>
             <div className="card">

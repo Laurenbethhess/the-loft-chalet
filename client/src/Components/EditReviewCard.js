@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Rating from '@mui/material/Rating';
 
-function EditReviewCard( { review, onUpdateReview, onDeleteReview, onSetAverageRating, onSetPropertyRating } ) {
+function EditReviewCard( { review, onUpdateReview, onDeleteReview, onSetAverageRating, onSetPropertyRating, onSetResponses, onDeleteResponse } ) {
     const [comment, setComment] = useState(review.comment)
     const [rating, setRating] = useState(review.rating)
     const [errors, setErrors] = useState([]);
@@ -20,14 +20,18 @@ function EditReviewCard( { review, onUpdateReview, onDeleteReview, onSetAverageR
         .then((r) => {
           if (r.ok) {
             r.json().then(data => {
-              onSetAverageRating(data)
-              onSetPropertyRating(data)
+              onSetAverageRating(data.rating)
+              onSetPropertyRating(data.rating)
+              // onSetResponses(data.responses)
+              console.log(data.rating)
+              console.log(data.responses)
               })
           } else {
             r.json().then((err) => setErrors(err.errors));  
           }
         })
         onDeleteReview(review.id);
+        onDeleteResponse(review.response_to_comments.id);
         navigate('/');
     }
 
