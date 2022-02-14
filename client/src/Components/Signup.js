@@ -6,7 +6,6 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import { useNavigate } from 'react-router-dom'
 
-
 function Signup({ onLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -103,6 +102,7 @@ function Signup({ onLogin }) {
                           /><br/>
                         <TextField
                           sx={{bgcolor: '#cfe8fc' }}
+                          required
                           variant="filled"
                           type="text"
                           name="comment"
