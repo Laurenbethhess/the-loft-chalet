@@ -16,13 +16,13 @@ function DeleteReservationCard({ reservation, onDeleteReservation }) {
     return (
         <div className="card">
             <div>
-                <Card sx={{ minWidth: 275 }} style={{backgroundColor: "#B1DFB0"}}>
+                <Card sx={{ minWidth: 275 }} style={{backgroundColor: "#FFFEE0"}}>
                     <CardContent>
                         <Typography >
                             {reservation.date}
                         </Typography>
                         <Typography>
-                            <Button variant="outlined" onClick={handleDeleteClick}>Delete Reservation</Button>
+                            <Button style={{backgroundColor: "#EC3030"}} variant="outlined" onClick={handleDeleteClick}>Delete Reservation</Button>
                         </Typography>
                     </CardContent>
                 </Card>
