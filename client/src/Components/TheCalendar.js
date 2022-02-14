@@ -58,7 +58,7 @@ function TheCalendar( {user, onLogin, reservations, calendar, onAddReservation, 
     
     return (
 
-        <div align='center'>
+        <div className="scaled" align='center'>
             <Box sx={{paddingTop: 20, width: '100%', maxWidth: 1200 }}>
                 <CalendarComponent 
                     id="calendar" 
