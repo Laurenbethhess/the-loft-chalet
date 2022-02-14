@@ -12,6 +12,7 @@ import CreateReview from "./Components/CreateReview";
 import EditReview from "./Components/EditReview";
 import TheCalendar from "./Components/TheCalendar";
 import EditResponse from "./Components/EditResponse";
+import Map from "./Components/Map";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -137,6 +138,8 @@ function handleDeleteResponse(id) {
         <Route path="/edit-review" element={<EditReview onLogin={setUser} onUpdateReview={handleUpdateReview} reviews={reviews} onDeleteReview={handleDeleteReview} onDeleteResponse={handleDeleteResponse} user={user} property={property} onSetProperty={setProperty} onSetAverageRating={setAverageRating} onSetPropertyRating ={setPropertyRating} onSetResponses={setResponses}/>}/>
         <Route path="/calendar" element={<TheCalendar user={user} onLogin={setUser} reservations={reservations} onAddReservation={handleAddReservation} calendar={calendar} onDeleteReservation={handleDeleteReservation}  />}/>
         <Route path="/edit-response" element={<EditResponse user={user} onLogin={setUser} responses={responses} onUpdateResponse={handleUpdateResponse} onDeleteResponse={handleDeleteResponse}  />}/>
+        <Route path="/map" element={<Map />}/>
+
       </Routes>
     </div>
   );

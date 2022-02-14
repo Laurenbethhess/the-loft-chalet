@@ -16,14 +16,16 @@ function TheCalendar( {user, onLogin, reservations, calendar, onAddReservation, 
     const [date, setDate] = useState("");
     const [calendar_id, setCalendarId] = useState(calendar.id);
     const [errors, setErrors] = useState([]);
-    const userRenderedReservations = reservations.map(reservation => <DeleteReservationCard reservation={reservation} key={reservation.id} onDeleteReservation={onDeleteReservation}/>)
+    // const userRenderedReservations = reservations.map(reservation => <DeleteReservationCard reservation={reservation} key={reservation.id} onDeleteReservation={onDeleteReservation}/>)
     const [search, setSearch] = useState("")
     const searchedReservations = reservations.filter(reservation => reservation.date.includes(search))
     const renderSearchedReservations = searchedReservations.map(reservation => <DeleteReservationCard reservation={reservation} key={reservation.id} onDeleteReservation={onDeleteReservation}/>)
 
     if (!user) return <Login onLogin={onLogin} />
 
-    const admin = user.id === 1
+    // const admin = user.id === 1
+    const admin = user.admin === true
+
 
     const handleSearchSubmit = (e) => {
         e.preventDefault();

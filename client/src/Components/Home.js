@@ -40,11 +40,6 @@ function Home( { property, reviews, onLogin, user, responses, onAddResponse, onA
                     </Typography>
                 </Box>
             </div>
-            <div>
-                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={{fontFamily: "Courier"}}>
-                   
-                </Typography>
-            </div>
             <CreateReview onAddReview={onAddReview} property={property} onLogin={onLogin} user={user} />
             <br/>
             {renderReviews}

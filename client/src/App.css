@@ -14,6 +14,13 @@
   border-radius: 10px;
 }
 
+
+.mapStyles {
+  height: 1px;
+  width: 1px;
+  border-radius: 10px;
+}
+
 .photos_div {
   padding-top: 100px;
 }

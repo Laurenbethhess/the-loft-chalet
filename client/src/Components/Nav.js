@@ -44,6 +44,10 @@ function Nav( { user, onSetUser, averageRating, propertyRating } ) {
                     <Link to="/calendar">Calendar</Link>
                 </Typography>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={{fontFamily: "Courier"}}>
+                    <Link to="/map">Map</Link>
+                </Typography>
+
+                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={{fontFamily: "Courier"}}>
                     <Link to="/contact">Contact</Link>
                 </Typography>
                 <Typography component="div" sx={{ flexGrow: 1 }} style={{fontFamily: "Courier"}}>
