@@ -14,8 +14,12 @@ class CommentRating < ApplicationRecord
   end
 
   def date_updated
-    self.updated_at.to_date.strftime("%B %d, %Y")
+    self.updated_at.strftime("%B %d, %Y %I:%M%p")
   end
+
+  # def date_updated
+  #   Time.now.strftime("%B %d, %Y %I:%M%p")
+  # end
 
   def self.ordered_by_id
     self.order(:date_updated)
