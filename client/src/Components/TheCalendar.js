@@ -23,10 +23,6 @@ function TheCalendar( {user, onLogin, reservations, calendar, onAddReservation, 
 
     if (!user) return <Login onLogin={onLogin} />
 
-    // const admin = user.id === 1
-    const admin = user.admin === true
-
-
     const handleSearchSubmit = (e) => {
         e.preventDefault();
         setSearch(search);
@@ -67,7 +63,7 @@ function TheCalendar( {user, onLogin, reservations, calendar, onAddReservation, 
                     values={values}  
                 />
             </Box>
-            {admin?
+            {user.admin?
                 <div className="create_card">
                     <Card sx={{ minWidth: 275, bgcolor: '#cfe8fc' }} style={{backgroundColor: "#B1DFB0"}}>
                         <CardContent>
