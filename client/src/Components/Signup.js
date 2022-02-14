@@ -93,7 +93,6 @@ function Signup({ onLogin }) {
                           /><br/>
                         <TextField
                           sx={{bgcolor: '#cfe8fc' }}
-                          required
                           variant="filled"
                           type="text"
                           name="comment"
@@ -104,7 +103,6 @@ function Signup({ onLogin }) {
                           /><br/>
                         <TextField
                           sx={{bgcolor: '#cfe8fc' }}
-                          required
                           variant="filled"
                           type="text"
                           name="comment"
@@ -124,11 +122,6 @@ function Signup({ onLogin }) {
                           onChange={(e) => setAvatar_url(e.target.value)}
                           /><br/> */}
                         <Button variant="outlined" type="submit">{isLoading ? "Loading..." : "Sign Up"}</Button><br/>
-                        <div>
-                            {errors.map((err) => (
-                            <li key={err}>{err}</li>
-                            ))}
-                        </div>
                       </form><br/>
                       <div>
                         {errors.map((err) => (
