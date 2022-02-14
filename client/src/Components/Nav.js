@@ -35,10 +35,10 @@ function Nav( { user, onSetUser, averageRating, propertyRating } ) {
                     <Link to="/">Main</Link>
                 </Typography>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={{fontFamily: "Courier"}}>
-                    <Link to="/amenities">Amenities</Link>
+                    <Link to="/amenity">Amenities</Link>
                 </Typography>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={{fontFamily: "Courier"}}>
-                    <Link to="/photos">Photos</Link>
+                    <Link to="/photo">Photos</Link>
                 </Typography>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={{fontFamily: "Courier"}}>
                     <Link to="/calendar">Calendar</Link>

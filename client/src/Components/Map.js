@@ -16,7 +16,8 @@ function Map() {
 
     return (
       <div>
-          <div style={{ height: '100vh', width: '100%' }}>
+      <div align='center' style={{paddingTop: 100 }}>
+          <div style={{ height: '75vh', width: '75%' }}>
             <GoogleMapReact
                 // bootstrapURLKeys={{ key: }}
                 defaultCenter={defaultProps.center}
@@ -37,6 +38,7 @@ function Map() {
             </GoogleMapReact>
           </div>            
 
+      </div>
       </div>
     )
 
