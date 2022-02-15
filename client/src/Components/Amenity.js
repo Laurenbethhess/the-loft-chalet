@@ -11,10 +11,12 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Box from '@mui/material/Box';
 
-function Amenity( {} ) {
+function Amenity( { property } ) {
     const [amenities, setAmenities] = useState([])
     const [filterBy, setFilterBy] = useState('')
     const [search, setSearch] = useState("")
+
+    console.log(property.summary)
 
     useEffect(() => {
         fetch('/amenities')
@@ -47,13 +49,16 @@ function Amenity( {} ) {
                     <Typography style={{fontWeight: "bold", fontSize: 30, fontFamily: "Courier"}} align='center' variant="p" gutterBottom component="div">
                         Amenities
                     </Typography>
+                    <Typography style={{fontStyle: "italic", fontSize: 18, fontFamily: "Courier"}} align='center' variant="p" gutterBottom component="div">
+                        {property.summary}
+                    </Typography>
                 </Box>
             </div>
             <div className="create_card">
             <Card sx={{ minWidth: 275, bgcolor: '#cfe8fc' }} style={{backgroundColor: "#B1DFB0"}}>
                 <CardContent>
                 <FormControl sx={{ minWidth: 275, bgcolor: '#cfe8fc' }}>
-                        <InputLabel>Filter</InputLabel>
+                        <InputLabel align='center'>Filter</InputLabel>
                             <Select
                                 value={filterBy}
                                 label="Filter"
@@ -73,7 +78,7 @@ function Amenity( {} ) {
                             </Select>
                     </FormControl>
                     <br/><br/>
-                    <Typography >
+                    <Typography align='center' >
                       <form onSubmit={handleSubmit}>
                         <TextField
                             type="text"
