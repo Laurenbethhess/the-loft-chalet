@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_14_153021) do
-
+ActiveRecord::Schema[7.0].define(version: 2022_02_14_153021) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,7 +19,7 @@ ActiveRecord::Schema.define(version: 2022_02_14_153021) do
     t.string "record_type", null: false
     t.bigint "record_id", null: false
     t.bigint "blob_id", null: false
-    t.datetime "created_at", precision: 6, null: false
+    t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
@@ -33,7 +32,7 @@ ActiveRecord::Schema.define(version: 2022_02_14_153021) do
     t.string "service_name", null: false
     t.bigint "byte_size", null: false
     t.string "checksum"
-    t.datetime "created_at", precision: 6, null: false
+    t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
@@ -47,16 +46,16 @@ ActiveRecord::Schema.define(version: 2022_02_14_153021) do
     t.bigint "property_id", null: false
     t.string "name"
     t.text "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["property_id"], name: "index_amenities_on_property_id"
   end
 
   create_table "calendars", force: :cascade do |t|
     t.string "property_name"
     t.bigint "property_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["property_id"], name: "index_calendars_on_property_id"
   end
 
@@ -65,8 +64,8 @@ ActiveRecord::Schema.define(version: 2022_02_14_153021) do
     t.float "rating"
     t.bigint "property_id", null: false
     t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["property_id"], name: "index_comment_ratings_on_property_id"
     t.index ["user_id"], name: "index_comment_ratings_on_user_id"
   end
@@ -75,8 +74,8 @@ ActiveRecord::Schema.define(version: 2022_02_14_153021) do
     t.string "photo_name"
     t.string "photo_url"
     t.bigint "property_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["property_id"], name: "index_photos_on_property_id"
   end
 
@@ -91,15 +90,15 @@ ActiveRecord::Schema.define(version: 2022_02_14_153021) do
     t.float "fall_weekend_price"
     t.float "fall_weekday_price"
     t.text "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "reservations", force: :cascade do |t|
     t.string "date"
     t.bigint "calendar_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["calendar_id"], name: "index_reservations_on_calendar_id"
   end
 
@@ -107,8 +106,8 @@ ActiveRecord::Schema.define(version: 2022_02_14_153021) do
     t.bigint "comment_rating_id", null: false
     t.bigint "user_id", null: false
     t.string "comment"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["comment_rating_id"], name: "index_response_to_comments_on_comment_rating_id"
     t.index ["user_id"], name: "index_response_to_comments_on_user_id"
   end
@@ -120,8 +119,8 @@ ActiveRecord::Schema.define(version: 2022_02_14_153021) do
     t.string "email"
     t.string "password_digest"
     t.string "avatar_url"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.binary "avatar"
     t.boolean "admin"
   end
