@@ -12,7 +12,7 @@ import CreateReview from "./Components/CreateReview";
 import EditReview from "./Components/EditReview";
 import TheCalendar from "./Components/TheCalendar";
 import EditResponse from "./Components/EditResponse";
-import Map from "./Components/Map";
+import MapContainer from "./Components/MapContainer";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -24,7 +24,6 @@ function App() {
   const [averageRating, setAverageRating] = useState('')
   const [propertyRating, setPropertyRating] = useState('')
   const [responses, setResponses] = useState([]);
-
 
   useEffect(() => {
     fetch('/photos')
@@ -138,8 +137,7 @@ function handleDeleteResponse(id) {
         <Route path="/edit-review" element={<EditReview onLogin={setUser} onUpdateReview={handleUpdateReview} reviews={reviews} onDeleteReview={handleDeleteReview} onDeleteResponse={handleDeleteResponse} user={user} property={property} onSetProperty={setProperty} onSetAverageRating={setAverageRating} onSetPropertyRating ={setPropertyRating} onSetResponses={setResponses}/>}/>
         <Route path="/calendar" element={<TheCalendar user={user} onLogin={setUser} reservations={reservations} onAddReservation={handleAddReservation} calendar={calendar} onDeleteReservation={handleDeleteReservation}  />}/>
         <Route path="/edit-response" element={<EditResponse user={user} onLogin={setUser} responses={responses} onUpdateResponse={handleUpdateResponse} onDeleteResponse={handleDeleteResponse}  />}/>
-        <Route path="/map" element={<Map />}/>
-
+        <Route path="/map" element={<MapContainer />}/>
       </Routes>
     </div>
   );
