@@ -58,7 +58,7 @@ function EditResponseCard( { response, onUpdateResponse, onDeleteResponse } ) {
                             name="comment"
                             autoComplete="off"
                             value={responseComment}
-                            label="Edit Review"
+                            label="Edit Response"
                             onChange={(e) => setResponseComment(e.target.value)}
                           />
                           <br/><br/>
