@@ -3,6 +3,7 @@ import ReviewsCard from "./ReviewsCard";
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import CreateReview from "./CreateReview"
+import Prices from "./Prices";
 
 function Home( { property, reviews, onLogin, user, responses, onAddResponse, onAddReview } ) {
     const [homePhoto, setHomePhoto] = useState('')
@@ -39,6 +40,9 @@ function Home( { property, reviews, onLogin, user, responses, onAddResponse, onA
                     {property.description}
                     </Typography>
                 </Box>
+            </div>
+            <div>
+                <Prices property={property}/>
             </div>
             <CreateReview onAddReview={onAddReview} property={property} onLogin={onLogin} user={user} />
             <br/>
