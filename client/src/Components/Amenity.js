@@ -16,8 +16,6 @@ function Amenity( { property } ) {
     const [filterBy, setFilterBy] = useState('')
     const [search, setSearch] = useState("")
 
-    console.log(property.summary)
-
     useEffect(() => {
         fetch('/amenities')
         .then(r => r.json())
