@@ -1,24 +1,40 @@
-# README
+<h1>The Loft Chalet</h1>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Right click on the `README.md` file and select `Open Preview` to view in preview mode.
 
-Things you may want to cover:
+This is an application that allows a user to view a vacation rental property and leave a review and/or response to a review.
 
-* Ruby version
+![checkpoint demo](Loft-Chalet.gif)
 
-* System dependencies
+This is a Rails and React fully built application using Ruby v 2.7.4, Rails v 7.0.2.2, Node v 16.3.0, and postgresql v 14.2.
 
-* Configuration
+<h2>Setup</h2>
 
-* Database creation
+To download the dependencies for both the frontend and backend, from the root directory in your terminal run:
 
-* Database initialization
+```sh
+bundle install
+npm install --prefix client
+```
 
-* How to run the test suite
+The models and the relationships for the database and tables are outlined here:
 
-* Services (job queues, cache servers, search engines, etc.)
+![domain diagram](ERD.png)
 
-* Deployment instructions
+There is some starter code in the 'db/seeds.rb' file.  To seed the data, run:
 
-* ...
+```sh
+rails db:seed
+```
+
+You can run your Rails API on [`localhost:3000`](http://localhost:3000) by running:
+
+```sh
+rails s
+```
+
+You can run your React app on [`localhost:4000`](http://localhost:4000) by running:
+
+```sh
+npm start --prefix client
+```
